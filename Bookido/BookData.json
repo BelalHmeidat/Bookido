@@ -1,0 +1,658 @@
+[
+    {
+      "uuid": "69540792-b3ba-4104-ad8b-2c5b47bfccf6",
+      "isbn": "978-0156012195",
+      "title": "The Little Prince",
+      "author": "Antoine de Saint-Exupéry",
+      "year": 1943,
+      "genre": "Novella / Philosophical Fiction",
+      "numberOfChapters": 27,
+      "numberOfCheckpoints": 6,
+      "synopsis": "A stranded aviator in the Sahara Desert meets a young prince fallen to Earth from a tiny asteroid, sparking a poetic exploration of love, loneliness, friendship, and the blindness of adult preoccupations.",
+      "currentChapter": 3,
+      "coverImage": "covers/the_little_prince.jpg",
+      "checkpoints": [
+        {
+          "uuid": "125f54d6-8164-4904-9c2a-2a61588d741a",
+          "title": "The Drawing in the Desert",
+          "icon": "pencil.and.outline",
+          "description": "Crash-landed in the Sahara, the Pilot meets a mysterious boy who instantly recognizes Drawing Number One and asks for a sheep.",
+          "isUnlocked": "2026-11-18T10:15:00Z",
+          "location": {
+            "uuid": "0e28d702-7a43-4c6e-8d7b-313aba45c8c2",
+            "name": "Sahara Desert",
+            "icon": "sun.dust.fill"
+          },
+          "mystery": {
+            "uuid": "125f54d6-8164-4904-9c2a-2a61588d741a",
+            "question": "What did the narrator's 'Drawing Number One' actually depict that adults mistook for a hat?",
+            "options": [
+              "A volcano erupting on a distant planet",
+              "A boa constrictor digesting an elephant",
+              "A desert sand dune at sunset",
+              "A sheep sleeping inside a wooden crate"
+            ],
+            "answerIndex": 1,
+            "clues": [
+              "The narrator drew it at age six after reading a book about primeval forests.",
+              "He had to draw an 'inside' version so grown-ups could finally understand it."
+            ]
+          },
+          "unlockedCharacters": [
+            "ae2e5d18-b255-4813-a717-9784e9616c97",
+            "77ab0181-5049-4e06-8dcd-52705de2b2a7"
+          ]
+        },
+        {
+          "uuid": "eb28f53b-bb0f-468e-be25-ed410ceca0fa",
+          "title": "Custodian of Asteroid B-612",
+          "icon": "sparkles",
+          "description": "Learn about the daily discipline required to protect a tiny home world from invasive roots and care for a proud, fragile flower.",
+          "isUnlocked": null,
+          "location": {
+            "uuid": "b8a349cf-20f1-46fe-939e-9986a85148e3",
+            "name": "Asteroid B-612",
+            "icon": "globe.americas.fill"
+          },
+          "mystery": {
+            "uuid": "eb28f53b-bb0f-468e-be25-ed410ceca0fa",
+            "question": "Why does the Little Prince urgently need a sheep for Asteroid B-612?",
+            "options": [
+              "To keep his Rose company while he travels",
+              "To pull his miniature carriage across the volcanoes",
+              "To eat young baobab shoots before they grow large enough to split the planet",
+              "To provide wool for a warm scarf during sunset"
+            ],
+            "answerIndex": 2,
+            "clues": [
+              "The Little Prince compares these dangerous plants to rosebushes while they are still small.",
+              "If attended to too late, their roots bore right through a tiny asteroid."
+            ]
+          },
+          "unlockedCharacters": [
+            "977b9bcb-d8ea-40f6-bc57-5e407ff5d238"
+          ]
+        },
+        {
+          "uuid": "d7c3a707-57e1-49f8-9330-0a6ac2903ff6",
+          "title": "The Sovereign of Asteroid 325",
+          "icon": "crown.fill",
+          "description": "Visiting neighboring asteroids, the Little Prince encounters a lonely monarch obsessed with universal authority.",
+          "isUnlocked": null,
+          "location": {
+            "uuid": "8ec6c9f7-d371-45c0-b59c-22c426245603",
+            "name": "Asteroid 325",
+            "icon": "crown"
+          },
+          "mystery": {
+            "uuid": "d7c3a707-57e1-49f8-9330-0a6ac2903ff6",
+            "question": "How does the King on Asteroid 325 preserve his illusion of absolute power?",
+            "options": [
+              "He only issues orders that his subjects or nature are already about to obey",
+              "He commands an invisible army of star-soldiers",
+              "He locks visitors inside his royal observatory",
+              "He rewrites the laws of physics every midnight"
+            ],
+            "answerIndex": 0,
+            "clues": [
+              "He insists his authority rests first and foremost on reason.",
+              "When asked to order a sunset, he explains he must wait until the exact minute conditions are favorable."
+            ]
+          },
+          "unlockedCharacters": []
+        },
+        {
+          "uuid": "27928770-924a-44ed-bd20-ad288e2e8793",
+          "title": "The Geographer's Ledger",
+          "icon": "map.fill",
+          "description": "On the sixth asteroid, a scholar who never leaves his desk explains why certain wonders are excluded from his eternal books.",
+          "isUnlocked": null,
+          "location": {
+            "uuid": "fe7689c3-3998-431d-acfe-9fb6c2bd55d5",
+            "name": "Asteroid 330",
+            "icon": "book.closed.fill"
+          },
+          "mystery": {
+            "uuid": "27928770-924a-44ed-bd20-ad288e2e8793",
+            "question": "Why does the Geographer refuse to record the Little Prince's Rose in his volumes?",
+            "options": [
+              "Because Asteroid B-612 has no oceans or mountain ranges",
+              "Because the Little Prince failed to bring a botanical sample",
+              "Because roses are too common across the universe",
+              "Because flowers are ephemeral and threatened with speedy disappearance"
+            ],
+            "answerIndex": 3,
+            "clues": [
+              "Geographers only record things they consider eternal, like mountains and oceans.",
+              "Hearing this term makes the Little Prince regret leaving his flower alone for the first time."
+            ]
+          },
+          "unlockedCharacters": [
+            "955dd5fc-8527-4013-aee0-872e2a4fe4f3"
+          ]
+        },
+        {
+          "uuid": "e0255733-ff98-4b97-9235-c0cfe34de98a",
+          "title": "The Secret of the Fox",
+          "icon": "heart.fill",
+          "description": "Distraught upon seeing a garden full of five thousand roses, the Little Prince learns the true meaning of devotion from a wild fox.",
+          "isUnlocked": null,
+          "location": {
+            "uuid": "8af8321a-b41a-4272-90f9-b9b9ba8c6ea2",
+            "name": "Earth — Wheat Field & Orchard",
+            "icon": "leaf.fill"
+          },
+          "mystery": {
+            "uuid": "e0255733-ff98-4b97-9235-c0cfe34de98a",
+            "question": "What does the Fox teach the Little Prince that 'taming' truly means?",
+            "options": [
+              "Training a creature to obey commands without hesitation",
+              "Creating ties so that two beings become unique and essential to each other",
+              "Building a glass globe to shield someone from the wind",
+              "Traveling together across every planet in the galaxy"
+            ],
+            "answerIndex": 1,
+            "clues": [
+              "Before this bond, the Fox says the boy is just like a hundred thousand other little boys.",
+              "Afterward, even the golden color of wheat fields will remind the Fox of the Prince's hair."
+            ]
+          },
+          "unlockedCharacters": [
+            "790257da-c543-413c-adde-045929f236d3"
+          ]
+        },
+        {
+          "uuid": "020ba883-7ca9-4560-9f9d-6a7fa44312f4",
+          "title": "Laughter Among the Stars",
+          "icon": "star.fill",
+          "description": "After finding a miraculous well in the desert, the Little Prince prepares to return home to his Rose.",
+          "isUnlocked": null,
+          "location": null,
+          "mystery": {
+            "uuid": "020ba883-7ca9-4560-9f9d-6a7fa44312f4",
+            "question": "What lasting gift does the Little Prince leave the Pilot before returning to Asteroid B-612?",
+            "options": [
+              "The golden scarf he wore across the desert",
+              "A map showing the coordinates of Asteroid B-612",
+              "The sound of his laughter echoing in every star in the night sky",
+              "A seed from the last baobab tree"
+            ],
+            "answerIndex": 2,
+            "clues": [
+              "The Prince says it will feel as though the Pilot has five hundred million little bells.",
+              "Only the Pilot will have stars that know how to laugh when he looks up at night."
+            ]
+          },
+          "unlockedCharacters": [
+            "15904496-a67d-466c-8f3e-62ed89358250"
+          ]
+        }
+      ],
+      "characters": [
+        {
+          "uuid": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+          "name": "The Little Prince",
+          "firstAppearance": "Chapter 2",
+          "role": "Protagonist",
+          "biography": "A young boy with golden hair who lives alone on Asteroid B-612, tending three miniature volcanoes and a single beloved Rose. After a misunderstanding with his Rose, he journeys across six asteroids before arriving on Earth in search of wisdom and friendship.",
+          "personality": "Curious, earnest, persistent in his questions, innocent yet deeply perceptive about human nature.",
+          "relationships": [
+            {
+              "id": "ae2e5d18-b255-4813-a717-9784e9616c97",
+              "relation": "Closest human friend and confidant in the Sahara"
+            },
+            {
+              "id": "977b9bcb-d8ea-40f6-bc57-5e407ff5d238",
+              "relation": "Devoted caretaker and beloved companion"
+            },
+            {
+              "id": "790257da-c543-413c-adde-045929f236d3",
+              "relation": "Tamed friend and pupil of the Fox's wisdom"
+            },
+            {
+              "id": "15904496-a67d-466c-8f3e-62ed89358250",
+              "relation": "Acquaintance who offers him passage back to his asteroid"
+            }
+          ],
+          "quote": "What makes the desert beautiful is that somewhere it hides a well.",
+          "picture": "characters/little_prince.png"
+        },
+        {
+          "uuid": "ae2e5d18-b255-4813-a717-9784e9616c97",
+          "name": "The Pilot (Narrator)",
+          "firstAppearance": "Chapter 1",
+          "role": "Narrator / Deuteragonist",
+          "biography": "An aviator disillusioned by the unimaginative adult world whose plane crashes in the Sahara Desert. Repairing his engine over eight days, he records the Little Prince's stories and rediscovers childlike wonder.",
+          "personality": "Reflective, protective, pragmatic yet imaginative at heart, deeply loyal.",
+          "relationships": [
+            {
+              "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+              "relation": "Friend, listener, and chronicler of the Prince's journey"
+            }
+          ],
+          "quote": "All grown-ups were once children... but only few of them remember it.",
+          "picture": "characters/pilot.png"
+        },
+        {
+          "uuid": "977b9bcb-d8ea-40f6-bc57-5e407ff5d238",
+          "name": "The Rose",
+          "firstAppearance": "Chapter 8",
+          "role": "Catalyst / Supporting Character",
+          "biography": "A singular, radiant flower that sprouted from a mysterious seed on Asteroid B-612. Though vain and dramatic in hiding her vulnerability, she genuinely loves the Little Prince and urges him to explore the universe without regret.",
+          "personality": "Proud, theatrical, delicate, secretly affectionate and courageous.",
+          "relationships": [
+            {
+              "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+              "relation": "Beloved flower tended and tamed by the Little Prince"
+            }
+          ],
+          "quote": "Of course I love you. It is my fault that you have not known it all the while.",
+          "picture": "characters/rose.png"
+        },
+        {
+          "uuid": "790257da-c543-413c-adde-045929f236d3",
+          "name": "The Fox",
+          "firstAppearance": "Chapter 21",
+          "role": "Mentor",
+          "biography": "A wise wild fox living on Earth who asks the Little Prince to tame him, revealing that true value comes from time and care invested in another.",
+          "personality": "Wise, patient, observant, gentle, emotionally articulate.",
+          "relationships": [
+            {
+              "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+              "relation": "Mentor and tamed friend"
+            }
+          ],
+          "quote": "It is only with the heart that one can see rightly; what is essential is invisible to the eye.",
+          "picture": "characters/fox.png"
+        },
+        {
+          "uuid": "15904496-a67d-466c-8f3e-62ed89358250",
+          "name": "The Snake",
+          "firstAppearance": "Chapter 17",
+          "role": "Supporting Character",
+          "biography": "A golden desert serpent who is the first creature the Little Prince meets upon landing in Africa, speaking in riddles and possessing the lethal venom that eventually frees the Prince's spirit to return home.",
+          "personality": "Enigmatic, philosophical, solemn, fatalistic.",
+          "relationships": [
+            {
+              "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+              "relation": "First earthly acquaintance and guide for his return"
+            }
+          ],
+          "quote": "Whomever I touch, I send back to the earth from whence he came.",
+          "picture": "characters/snake.png"
+        },
+        {
+          "uuid": "955dd5fc-8527-4013-aee0-872e2a4fe4f3",
+          "name": "The Lamplighter",
+          "firstAppearance": "Chapter 14",
+          "role": "Supporting Character",
+          "biography": "The sole inhabitant of a tiny asteroid whose rotation has sped up to one revolution per minute, forcing him to light and extinguish his street lamp every thirty seconds out of unwavering fidelity to his orders.",
+          "personality": "Diligent, selfless, exhausted, faithful to duty.",
+          "relationships": [
+            {
+              "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+              "relation": "The only adult visitor the Little Prince felt he could have befriended"
+            }
+          ],
+          "quote": "Good morning. Good evening.",
+          "picture": "characters/lamplighter.png"
+        }
+      ]
+    },
+    {
+      "uuid": "b69342b3-9bce-4acf-b473-9f6ea24c4302",
+      "isbn": "978-0141439846",
+      "name": "Dracula",
+      "author": "Bram Stoker",
+      "year": 1897,
+      "genre": "Gothic Horror / Epistolary Novel",
+      "numberOfChapters": 27,
+      "numberOfCheckpoints": 6,
+      "description": "Told through diary entries, letters, and ship logs, an ancient Transylvanian vampire plots to spread his undead plague to Victorian England, prompting a small alliance led by Professor Abraham Van Helsing to hunt him down.",
+      "currentChapter": 5,
+      "coverImage": "covers/dracula.jpg",
+      "checkpoints": [
+        {
+          "uuid": "680cbb09-f48d-4c67-9416-0d667308e90f",
+          "title": "Guest and Prisoner at Borgo Pass",
+          "icon": "key.fill",
+          "description": "Solicitor Jonathan Harker travels to the Carpathian Mountains to finalize a London estate purchase, only to uncover his host's monstrous nature.",
+          "isUnlocked": "2026-11-18T14:45:00Z",
+          "location": {
+            "uuid": "2d9ce3b0-3f80-4905-87eb-c1e91dfcf08d",
+            "name": "Castle Dracula, Transylvania",
+            "icon": "building.columns.fill"
+          },
+          "mystery": {
+            "uuid": "680cbb09-f48d-4c67-9416-0d667308e90f",
+            "question": "How does Jonathan Harker first discover that Count Dracula casts no reflection?",
+            "options": [
+              "While shaving, Harker sees Dracula behind him yet his shaving mirror shows only the empty room",
+              "He walks past a hall of mirrors in the castle library",
+              "He notices Dracula has no reflection in the castle moat",
+              "Dracula shatters every looking-glass in the dining hall"
+            ],
+            "answerIndex": 0,
+            "clues": [
+              "The incident happens in the morning after Harker accidentally cuts his chin.",
+              "Dracula immediately throws the small glass out the high castle window afterward."
+            ]
+          }
+        },
+        {
+          "uuid": "3d0628c3-30d4-49cb-af0b-8da022d68470",
+          "title": "The Ghost Ship of Whitby",
+          "icon": "ferry.fill",
+          "description": "During a violent tempest on the Yorkshire coast, a Russian schooner runs aground carrying fifty boxes of Transylvanian earth.",
+          "isUnlocked": null,
+          "location": {
+            "uuid": "5390aa2a-7f44-427d-90c5-d0bda50c275e",
+            "name": "Whitby Harbor, England",
+            "icon": "water.waves"
+          },
+          "mystery": {
+            "uuid": "3d0628c3-30d4-49cb-af0b-8da022d68470",
+            "question": "What grim sight awaits rescuers aboard the schooner Demeter when it washes ashore at Whitby?",
+            "options": [
+              "A cabin filled with sleeping bats",
+              "An empty ship with no cargo or crew records",
+              "The dead captain lashed to the wheel clutching a crucifix and rosary",
+              "Jonathan Harker unconscious in the cargo hold"
+            ],
+            "answerIndex": 2,
+            "clues": [
+              "The captain tied his own hands to the spokes so he could not abandon his post.",
+              "A large black dog leaps ashore the instant the ship strikes the sand."
+            ]
+          }
+        },
+        {
+          "uuid": "5b80c5b2-8c32-46e3-babb-8e97585230fe",
+          "title": "The Bloofer Lady of Hampstead",
+          "icon": "moon.stars.fill",
+          "description": "Following Lucy Westenra's funeral, small children go missing on Hampstead Heath with tiny puncture wounds on their throats.",
+          "isUnlocked": null,
+          "location": {
+            "uuid": "09dcf7e9-5a30-45aa-b6de-d2ac0d735bd2",
+            "name": "Kingstead Cemetery, London",
+            "icon": "flame"
+          },
+          "mystery": {
+            "uuid": "5b80c5b2-8c32-46e3-babb-8e97585230fe",
+            "question": "How does Professor Van Helsing prove to Seward, Holmwood, and Morris that Lucy has become Un-Dead?",
+            "options": [
+              "By photographing her shadow in sunlight",
+              "By opening her tomb at night to reveal an empty coffin and witnessing her return with a child",
+              "By forcing her to drink holy water at the church altar",
+              "By reading Renfield's asylum confession aloud"
+            ],
+            "answerIndex": 1,
+            "clues": [
+              "Dr. Seward initially refuses to believe Lucy's body is not inside her leaden coffin.",
+              "The group keeps a midnight vigil outside the churchyard vault."
+            ]
+          }
+        },
+        {
+          "uuid": "80230ef5-610c-4b21-b07d-96fa5242e11e",
+          "title": "Sterilizing Carfax Abbey",
+          "icon": "shield.lefthalf.filled",
+          "description": "Armed with legal records and sacred relics, the Crew of Light infiltrates Dracula's dilapidated estate next to Seward's asylum.",
+          "isUnlocked": null,
+          "location": {
+            "uuid": "de66a16e-f3c5-4a45-bb07-efd33ab84c92",
+            "name": "Carfax Abbey, Purfleet",
+            "icon": "cross.fill"
+          },
+          "mystery": {
+            "uuid": "80230ef5-610c-4b21-b07d-96fa5242e11e",
+            "question": "How do Van Helsing and his companions render Dracula's earth-boxes unusable as resting sanctuaries?",
+            "options": [
+              "They burn all fifty wooden boxes to ash",
+              "They dump the Transylvanian soil into the River Thames",
+              "They seal the chapel doors with iron chains",
+              "They place a portion of the Sacred Wafer (Host) inside each box"
+            ],
+            "answerIndex": 3,
+            "clues": [
+              "Van Helsing obtained an Indulgence to carry the consecrated object for this purpose.",
+              "Once sanctified, the earth can no longer shelter the Count."
+            ]
+          }
+        },
+        {
+          "uuid": "04f89cd5-a407-468a-be6c-03a0d4dd0a7b",
+          "title": "The Telepathic Trance",
+          "icon": "eye.fill",
+          "description": "After Dracula forces Mina to drink his blood, a perilous psychic bond forms between predator and prey.",
+          "isUnlocked": null,
+          "location": null,
+          "mystery": {
+            "uuid": "04f89cd5-a407-468a-be6c-03a0d4dd0a7b",
+            "question": "How does the Crew of Light turn Mina's vampiric curse into a strategic advantage during the chase?",
+            "options": [
+              "Van Helsing hypnotizes Mina at sunrise and sunset so she can report the sounds around Dracula",
+              "Mina reads Dracula's written letters left behind at Piccadilly",
+              "Mina commands Renfield to reveal the Count's shipping route",
+              "Van Helsing uses a compass magnetized with Transylvanian soil"
+            ],
+            "answerIndex": 0,
+            "clues": [
+              "The psychic connection is clearest during the transitional hours of dawn and dusk.",
+              "Through it, Mina hears lapping water, creaking timbers, and sailors' voices aboard the Czarina Catherine."
+            ]
+          }
+        },
+        {
+          "uuid": "ac6dd586-3f54-4f2f-909e-0c4692e12607",
+          "title": "Showdown at Sunset",
+          "icon": "sunset.fill",
+          "description": "Racing against the dying light in the snowy Carpathians, the hunters intercept the Szgany cart carrying Dracula's final box.",
+          "isUnlocked": null,
+          "location": {
+            "uuid": "f9920ce9-e846-440d-9112-eda81b71ed2b",
+            "name": "Borgo Pass, Carpathian Mountains",
+            "icon": "mountain.2.fill"
+          },
+          "mystery": {
+            "uuid": "ac6dd586-3f54-4f2f-909e-0c4692e12607",
+            "question": "How is Count Dracula finally destroyed at the climax of the novel?",
+            "options": [
+              "Van Helsing exposes him to direct sunlight at high noon",
+              "Jonathan Harker shears through his throat with a Kukri knife while Quincey Morris stabs his heart with a Bowie knife",
+              "Arthur Holmwood drives an ash stake through his coffin lid",
+              "Mina seals him inside a circle of Sacred Wafers"
+            ],
+            "answerIndex": 1,
+            "clues": [
+              "Two blades strike simultaneously just as the sun touches the mountain tops.",
+              "In that instant, Dracula's body crumbles into dust."
+            ]
+          }
+        }
+      ],
+      "characters": [
+        {
+          "uuid": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+          "name": "Count Dracula",
+          "firstAppearance": "Chapter 1",
+          "role": "Antagonist",
+          "biography": "A centuries-old Székely nobleman, warlord, and vampire residing in a decaying castle in Transylvania who schemes to relocate to London and build a new dynasty of the Un-Dead.",
+          "personality": "Aristocratic, cunning, predatory, commanding, wrathful when thwarted.",
+          "relationships": [
+            {
+              "id": "d97277d1-aea9-44b0-84c6-635d744fd05f",
+              "relation": "Former legal client turned mortal enemy"
+            },
+            {
+              "id": "65087c4f-0113-48de-94c1-33e8511d7aff",
+              "relation": "Targeted victim linked through forced blood-sharing"
+            },
+            {
+              "id": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
+              "relation": "Intellectual and spiritual adversary"
+            },
+            {
+              "id": "5b23f96a-4708-4f6b-bb52-b516c9c27efb",
+              "relation": "Predator who drains and transforms her into a vampire"
+            },
+            {
+              "id": "40ba6756-fea7-4320-8d35-48e655cc32d8",
+              "relation": "Telepathic master"
+            }
+          ],
+          "quote": "Listen to them—the children of the night. What music they make!",
+          "picture": "characters/count_dracula.png"
+        },
+        {
+          "uuid": "d97277d1-aea9-44b0-84c6-635d744fd05f",
+          "name": "Jonathan Harker",
+          "firstAppearance": "Chapter 1",
+          "role": "Protagonist",
+          "biography": "A young English solicitor sent to Castle Dracula to complete real estate transactions who narrowly escapes imprisonment and joins the crusade to avenge his trauma and save his wife Mina.",
+          "personality": "Methodical, brave, resilient, fiercely devoted to Mina.",
+          "relationships": [
+            {
+              "id": "65087c4f-0113-48de-94c1-33e8511d7aff",
+              "relation": "Devoted husband"
+            },
+            {
+              "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+              "relation": "Former prisoner and eventual slayer"
+            },
+            {
+              "id": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
+              "relation": "Trusted ally in the Crew of Light"
+            }
+          ],
+          "quote": "The castle is a veritable prison, and I am a prisoner!",
+          "picture": "characters/jonathan_harker.png"
+        },
+        {
+          "uuid": "65087c4f-0113-48de-94c1-33e8511d7aff",
+          "name": "Mina Murray (Harker)",
+          "firstAppearance": "Chapter 5",
+          "role": "Protagonist",
+          "biography": "An assistant schoolmistress and shorthand expert whose meticulous compilation of diaries, letters, and train schedules forms the backbone of the hunters' intelligence—even after Dracula preys upon her.",
+          "personality": "Brilliant, organized, compassionate, self-sacrificing, resolute.",
+          "relationships": [
+            {
+              "id": "d97277d1-aea9-44b0-84c6-635d744fd05f",
+              "relation": "Loving wife and partner"
+            },
+            {
+              "id": "5b23f96a-4708-4f6b-bb52-b516c9c27efb",
+              "relation": "Childhood best friend"
+            },
+            {
+              "id": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
+              "relation": "Intellectual collaborator and spiritual ward"
+            },
+            {
+              "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+              "relation": "Psychically linked victim who turns his bond against him"
+            }
+          ],
+          "quote": "We must be ready to meet death at any turn, and we must not flinch.",
+          "picture": "characters/mina_harker.png"
+        },
+        {
+          "uuid": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
+          "name": "Professor Abraham Van Helsing",
+          "firstAppearance": "Chapter 9",
+          "role": "Mentor / Protagonist",
+          "biography": "A Dutch polymath, physician, philosopher, and metaphysician summoned by his former student Dr. Seward to diagnose Lucy Westenra's mysterious illness and lead the campaign against Dracula.",
+          "personality": "Erudite, open-minded, eccentric, courageous, deeply pious.",
+          "relationships": [
+            {
+              "id": "069a8a97-6461-4fc9-b6fc-4e881dc6a5ac",
+              "relation": "Former medical professor and mentor"
+            },
+            {
+              "id": "65087c4f-0113-48de-94c1-33e8511d7aff",
+              "relation": "Mentor and admirer of her intellect"
+            },
+            {
+              "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+              "relation": "Sworn nemesis"
+            }
+          ],
+          "quote": "We have on our side power of combination—a power denied to the vampire kind.",
+          "picture": "characters/van_helsing.png"
+        },
+        {
+          "uuid": "5b23f96a-4708-4f6b-bb52-b516c9c27efb",
+          "name": "Lucy Westenra",
+          "firstAppearance": "Chapter 5",
+          "role": "Supporting Character / Tragic Victim",
+          "biography": "Mina's vivacious and wealthy best friend who receives three marriage proposals in a single day before falling prey to Dracula's nocturnal attacks at Whitby and London.",
+          "personality": "Affectionate, lively, generous, sensitive.",
+          "relationships": [
+            {
+              "id": "65087c4f-0113-48de-94c1-33e8511d7aff",
+              "relation": "Lifelong best friend"
+            },
+            {
+              "id": "069a8a97-6461-4fc9-b6fc-4e881dc6a5ac",
+              "relation": "Close friend and rejected suitor"
+            },
+            {
+              "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+              "relation": "First English victim"
+            }
+          ],
+          "quote": "Why can't they let a girl marry three men, or as many as want her, and save all this trouble?",
+          "picture": "characters/lucy_westenra.png"
+        },
+        {
+          "uuid": "069a8a97-6461-4fc9-b6fc-4e881dc6a5ac",
+          "name": "Dr. John Seward",
+          "firstAppearance": "Chapter 5",
+          "role": "Supporting Character / Protagonist",
+          "biography": "The dedicated administrator of a psychiatric asylum near Purfleet who records his clinical observations on phonograph cylinders and invites Van Helsing to England.",
+          "personality": "Analytical, earnest, loyal, initially skeptical of the supernatural.",
+          "relationships": [
+            {
+              "id": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
+              "relation": "Former student and trusted colleague"
+            },
+            {
+              "id": "40ba6756-fea7-4320-8d35-48e655cc32d8",
+              "relation": "Attending psychiatrist"
+            },
+            {
+              "id": "5b23f96a-4708-4f6b-bb52-b516c9c27efb",
+              "relation": "Devoted friend and former suitor"
+            }
+          ],
+          "quote": "I am glad to have a friend who can help me in this dark hour.",
+          "picture": "characters/john_seward.png"
+        },
+        {
+          "uuid": "40ba6756-fea7-4320-8d35-48e655cc32d8",
+          "name": "R. M. Renfield",
+          "firstAppearance": "Chapter 5",
+          "role": "Supporting Character",
+          "biography": "A patient in Dr. Seward's asylum suffering from 'zoophagous' delusions—consuming flies, spiders, and birds to absorb their life force—who acts as a psychic barometer for Dracula's proximity before ultimately trying to protect Mina.",
+          "personality": "Articulate, erratic, tormented, capable of sudden moral clarity.",
+          "relationships": [
+            {
+              "id": "069a8a97-6461-4fc9-b6fc-4e881dc6a5ac",
+              "relation": "Patient under Dr. Seward's care"
+            },
+            {
+              "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+              "relation": "Psychically dominated servant who ultimately rebels"
+            },
+            {
+              "id": "65087c4f-0113-48de-94c1-33e8511d7aff",
+              "relation": "Protector in his final moments"
+            }
+          ],
+          "quote": "The blood is the life!",
+          "picture": "characters/renfield.png"
+        }
+      ]
+    }
+]
+ 

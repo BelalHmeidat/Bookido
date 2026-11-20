@@ -1,0 +1,160 @@
+//
+//  Book.swift
+//  MyApp
+//
+//  Created by Belal Hmeidat on 17/11/2026.
+//
+
+import Foundation
+
+/// Represents a book with checkpoints, mysteries, and characters to unlock as the reader progresses.
+public struct Book: Identifiable, Codable, Hashable, Sendable {
+    public let id: UUID
+    public var isbn: String
+    public var title: String
+    public var author: String
+    public var year: Int?
+    public var genre: String
+    public var numberOfChapters: Int
+    public var numberOfCheckpoints: Int
+    public var synopsis: String
+    public var currentChapter: Int
+    public var coverImage: String
+    public var checkpoints: [Checkpoint]
+    public var characters: [BookCharacter]
+
+    enum CodingKeys: String, CodingKey {
+        case id = "uuid"
+        case isbn
+        case title
+        case name
+        case author
+        case year
+        case genre
+        case numberOfChapters
+        case numberOfCheckpoints
+        case synopsis
+        case description
+        case currentChapter
+        case coverImage
+        case checkpoints
+        case characters
+    }
+
+    public init(
+        id: UUID = UUID(),
+        isbn: String,
+        title: String,
+        author: String,
+        year: Int? = nil,
+        genre: String,
+        numberOfChapters: Int,
+        numberOfCheckpoints: Int = 0,
+        synopsis: String,
+        currentChapter: Int = 1,
+        coverImage: String = "",
+        checkpoints: [Checkpoint] = [],
+        characters: [BookCharacter] = []
+    ) {
+        self.id = id
+        self.isbn = isbn
+        self.title = title
+        self.author = author
+        self.year = year
+        self.genre = genre
+        self.numberOfChapters = numberOfChapters
+        self.numberOfCheckpoints = numberOfCheckpoints == 0 ? checkpoints.count : numberOfCheckpoints
+        self.synopsis = synopsis
+        self.currentChapter = currentChapter
+        self.coverImage = coverImage
+        self.checkpoints = checkpoints
+        self.characters = characters
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(UUID.self, forKey: .id)
+        self.isbn = try container.decode(String.self, forKey: .isbn)
+
+        // Supports both "title" and "name" keys from BookData.json
+        if let decodedTitle = try container.decodeIfPresent(String.self, forKey: .title) {
+            self.title = decodedTitle
+        } else if let decodedName = try container.decodeIfPresent(String.self, forKey: .name) {
+            self.title = decodedName
+        } else {
+            self.title = ""
+        }
+
+        self.author = try container.decode(String.self, forKey: .author)
+        self.year = try container.decodeIfPresent(Int.self, forKey: .year)
+        self.genre = try container.decode(String.self, forKey: .genre)
+        self.numberOfChapters = try container.decode(Int.self, forKey: .numberOfChapters)
+        self.numberOfCheckpoints = try container.decodeIfPresent(Int.self, forKey: .numberOfCheckpoints) ?? 0
+
+        // Supports both "synopsis" and "description" keys from BookData.json
+        if let decodedSynopsis = try container.decodeIfPresent(String.self, forKey: .synopsis) {
+            self.synopsis = decodedSynopsis
+        } else if let decodedDesc = try container.decodeIfPresent(String.self, forKey: .description) {
+            self.synopsis = decodedDesc
+        } else {
+            self.synopsis = ""
+        }
+
+        self.currentChapter = try container.decode(Int.self, forKey: .currentChapter)
+        self.coverImage = try container.decodeIfPresent(String.self, forKey: .coverImage) ?? ""
+        self.checkpoints = try container.decodeIfPresent([Checkpoint].self, forKey: .checkpoints) ?? []
+        self.characters = try container.decodeIfPresent([BookCharacter].self, forKey: .characters) ?? []
+
+        // Synchronize character unlock status based on unlocked checkpoints
+        let unlockedCharIds = Set(self.checkpoints.filter { $0.isUnlocked }.flatMap { $0.unlockedCharacters })
+        for i in self.characters.indices {
+            if unlockedCharIds.contains(self.characters[i].id) {
+                self.characters[i].isUnlocked = true
+            }
+        }
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(isbn, forKey: .isbn)
+        try container.encode(title, forKey: .title)
+        try container.encode(author, forKey: .author)
+        try container.encode(year, forKey: .year)
+        try container.encode(genre, forKey: .genre)
+        try container.encode(numberOfChapters, forKey: .numberOfChapters)
+        try container.encode(numberOfCheckpoints, forKey: .numberOfCheckpoints)
+        try container.encode(synopsis, forKey: .synopsis)
+        try container.encode(currentChapter, forKey: .currentChapter)
+        try container.encode(coverImage, forKey: .coverImage)
+        try container.encode(checkpoints, forKey: .checkpoints)
+        try container.encode(characters, forKey: .characters)
+    }
+
+    /// Checkpoints that have been successfully unlocked.
+    public var unlockedCheckpoints: [Checkpoint] {
+        checkpoints.filter { $0.isUnlocked }
+    }
+
+    /// The next locked checkpoint waiting to be reached and solved.
+    public var nextLockedCheckpoint: Checkpoint? {
+        checkpoints.first { !$0.isUnlocked }
+    }
+
+    /// Characters that have been discovered/unlocked.
+    public var unlockedCharacters: [BookCharacter] {
+        characters.filter { $0.isUnlocked }
+    }
+
+    /// Reading progress ratio from 0.0 to 1.0 based on total chapters.
+    public var chapterProgress: Double {
+        guard numberOfChapters > 0 else { return 0.0 }
+        return min(max(Double(currentChapter) / Double(numberOfChapters), 0.0), 1.0)
+    }
+
+    /// Checkpoint unlock progress ratio from 0.0 to 1.0.
+    public var checkpointProgress: Double {
+        guard !checkpoints.isEmpty else { return 0.0 }
+        return Double(unlockedCheckpoints.count) / Double(checkpoints.count)
+    }
+}
