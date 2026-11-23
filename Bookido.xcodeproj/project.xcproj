@@ -22,6 +22,7 @@
     },
     { "kind": "folder", "path": "DataSource", "target-membership": [ "Bookido" ] },
     { "kind": "folder", "path": "Model", "target-membership": [ "Bookido" ] },
+    { "kind": "folder", "path": "Service", "target-membership": [ "Bookido" ] },
   ],
   "targets": [
     {
