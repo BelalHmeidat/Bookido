@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents the in-universe physical or symbolic location where a checkpoint takes place.
-public struct BookLocation: Identifiable, Codable, Hashable, Equatable, Sendable {
+public struct Location: Identifiable, Codable, Hashable, Equatable, Sendable {
     public let id: UUID
     public var name: String
     public var icon: String
@@ -29,7 +29,7 @@ public struct BookLocation: Identifiable, Codable, Hashable, Equatable, Sendable
         self.icon = icon
     }
 
-    public static func == (lhs: BookLocation, rhs: BookLocation) -> Bool {
+    public static func == (lhs: Location, rhs: Location) -> Bool {
         lhs.id == rhs.id
     }
 

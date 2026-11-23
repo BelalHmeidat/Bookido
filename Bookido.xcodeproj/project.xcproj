@@ -19,6 +19,7 @@
         { "path": "<PRODUCTS>/Bookido.app", "id": "000000000000000000000120", "type": "wrapper.application", "index": false },
       ],
     },
+    { "kind": "folder", "path": "DataSource", "target-membership": [ "Bookido" ] },
     { "kind": "folder", "path": "Model", "target-membership": [ "Bookido" ] },
   ],
   "targets": [

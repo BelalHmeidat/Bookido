@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a character in the story that can be unlocked and inspected in their own view.
-public struct BookCharacter: Identifiable, Codable, Hashable, Equatable, Sendable {
+public struct Character: Identifiable, Codable, Hashable, Equatable, Sendable {
     public let id: UUID
     public var name: String
     public var firstAppearance: String
@@ -20,7 +20,6 @@ public struct BookCharacter: Identifiable, Codable, Hashable, Equatable, Sendabl
     public var picture: String
 
     /// Dynamic unlock state within the app reader experience.
-    public var isUnlocked: Bool
 
     enum CodingKeys: String, CodingKey {
         case id = "uuid"
@@ -44,7 +43,6 @@ public struct BookCharacter: Identifiable, Codable, Hashable, Equatable, Sendabl
         relationships: [CharacterRelationship] = [],
         quote: String = "",
         picture: String = "",
-        isUnlocked: Bool = false
     ) {
         self.id = id
         self.name = name
@@ -55,7 +53,6 @@ public struct BookCharacter: Identifiable, Codable, Hashable, Equatable, Sendabl
         self.relationships = relationships
         self.quote = quote
         self.picture = picture
-        self.isUnlocked = isUnlocked
     }
 
     public init(from decoder: Decoder) throws {
@@ -69,7 +66,6 @@ public struct BookCharacter: Identifiable, Codable, Hashable, Equatable, Sendabl
         self.relationships = try container.decodeIfPresent([CharacterRelationship].self, forKey: .relationships) ?? []
         self.quote = try container.decodeIfPresent(String.self, forKey: .quote) ?? ""
         self.picture = try container.decodeIfPresent(String.self, forKey: .picture) ?? ""
-        self.isUnlocked = false
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -85,7 +81,7 @@ public struct BookCharacter: Identifiable, Codable, Hashable, Equatable, Sendabl
         try container.encode(picture, forKey: .picture)
     }
 
-    public static func == (lhs: BookCharacter, rhs: BookCharacter) -> Bool {
+    public static func == (lhs: Character, rhs: Character) -> Bool {
         lhs.id == rhs.id
     }
 

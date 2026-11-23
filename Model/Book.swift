@@ -21,7 +21,7 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
     public var currentChapter: Int
     public var coverImage: String
     public var checkpoints: [Checkpoint]
-    public var characters: [BookCharacter]
+    public var characters: [Character]
 
     enum CodingKeys: String, CodingKey {
         case id = "uuid"
@@ -54,7 +54,7 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         currentChapter: Int = 1,
         coverImage: String = "",
         checkpoints: [Checkpoint] = [],
-        characters: [BookCharacter] = []
+        characters: [Character] = []
     ) {
         self.id = id
         self.isbn = isbn
@@ -103,15 +103,8 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         self.currentChapter = try container.decode(Int.self, forKey: .currentChapter)
         self.coverImage = try container.decodeIfPresent(String.self, forKey: .coverImage) ?? ""
         self.checkpoints = try container.decodeIfPresent([Checkpoint].self, forKey: .checkpoints) ?? []
-        self.characters = try container.decodeIfPresent([BookCharacter].self, forKey: .characters) ?? []
+        self.characters = try container.decodeIfPresent([Character].self, forKey: .characters) ?? []
 
-        // Synchronize character unlock status based on unlocked checkpoints
-        let unlockedCharIds = Set(self.checkpoints.filter { $0.isUnlocked }.flatMap { $0.unlockedCharacters })
-        for i in self.characters.indices {
-            if unlockedCharIds.contains(self.characters[i].id) {
-                self.characters[i].isUnlocked = true
-            }
-        }
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -141,20 +134,34 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         checkpoints.first { !$0.isUnlocked }
     }
 
+    /// A set of all character IDs unlocked across all currently unlocked checkpoints
+    public var unlockedCharacterIDs: Set<UUID> {
+       Set(checkpoints.filter { $0.isUnlocked }.flatMap { $0.unlockedCharacters })
+    }
+
     /// Characters that have been discovered/unlocked.
-    public var unlockedCharacters: [BookCharacter] {
-        characters.filter { $0.isUnlocked }
+    public var unlockedCharacters: [Character] {
+       characters.filter { unlockedCharacterIDs.contains($0.id) }
     }
 
-    /// Reading progress ratio from 0.0 to 1.0 based on total chapters.
-    public var chapterProgress: Double {
-        guard numberOfChapters > 0 else { return 0.0 }
-        return min(max(Double(currentChapter) / Double(numberOfChapters), 0.0), 1.0)
+    /// Check if a specific character is unlocked
+    public func isCharacterUnlocked(_ character: Character) -> Bool {
+       unlockedCharacterIDs.contains(character.id)
+    }
+    
+    /// A set of all location IDs unlocked across all currently unlocked checkpoints
+    public var unlockedLocationIDs: Set<UUID> {
+        Set(checkpoints.filter { $0.isUnlocked }.compactMap { $0.location?.id })
     }
 
-    /// Checkpoint unlock progress ratio from 0.0 to 1.0.
-    public var checkpointProgress: Double {
-        guard !checkpoints.isEmpty else { return 0.0 }
-        return Double(unlockedCheckpoints.count) / Double(checkpoints.count)
+    /// All the locations unlocked so far
+    public var unlockedLocations: [Location] {
+        checkpoints.filter { $0.isUnlocked }.compactMap { $0.location }
+    }
+
+    /// Checkpoint unlock progress ratio from 0 - 100
+    public var checkpointProgressPercentage: Int {
+        guard !checkpoints.isEmpty else { return 0 }
+        return Int(Double(unlockedCheckpoints.count) / Double(checkpoints.count) * 100)
     }
 }

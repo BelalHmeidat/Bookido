@@ -18,7 +18,7 @@ public struct Checkpoint: Identifiable, Codable, Hashable, Equatable, Sendable {
     public var unlockedAt: Date?
 
     /// In-universe location where this event occurs.
-    public var location: BookLocation?
+    public var location: Location?
 
     /// The mystery/mini-quiz that unlocks this checkpoint.
     public var mystery: Mystery
@@ -48,7 +48,7 @@ public struct Checkpoint: Identifiable, Codable, Hashable, Equatable, Sendable {
         icon: String = "bookmark.fill",
         description: String,
         unlockedAt: Date? = nil,
-        location: BookLocation? = nil,
+        location: Location? = nil,
         mystery: Mystery,
         unlockedCharacters: [UUID] = []
     ) {
@@ -68,7 +68,7 @@ public struct Checkpoint: Identifiable, Codable, Hashable, Equatable, Sendable {
         self.title = try container.decode(String.self, forKey: .title)
         self.icon = try container.decodeIfPresent(String.self, forKey: .icon) ?? "bookmark.fill"
         self.description = try container.decode(String.self, forKey: .description)
-        self.location = try container.decodeIfPresent(BookLocation.self, forKey: .location)
+        self.location = try container.decodeIfPresent(Location.self, forKey: .location)
         self.mystery = try container.decode(Mystery.self, forKey: .mystery)
         self.unlockedCharacters = try container.decodeIfPresent([UUID].self, forKey: .unlockedCharacters) ?? []
 
