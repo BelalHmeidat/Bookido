@@ -18,6 +18,8 @@ struct JourneyView : View {
     
     var body : some View {
         
+        let currentBook = bookStore.selectedBook
+        
         NavigationStack {
             
             ZStack {
@@ -45,7 +47,7 @@ struct JourneyView : View {
                         
                         
                         VStack {
-                            Text(bookStore.selectedBook?.title ?? "Journey")
+                            Text(currentBook?.title ?? "Journey")
                                 .font(.system(.title, design: .serif, weight: .bold))
                                 .foregroundStyle(SketchTheme.primaryAccent)
                                 .multilineTextAlignment(.center)
@@ -180,7 +182,7 @@ struct JourneyView : View {
                 
             }
             .fullScreenCover(isPresented: $showBooksList) {
-                ListBooksView ()
+                ShelfView ()
             }
             .navigationDestination(isPresented: $showCharacters) {
                 CharactersView()

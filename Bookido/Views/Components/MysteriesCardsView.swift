@@ -7,47 +7,46 @@
 
 import SwiftUI
 
-struct MysteriesCardsView : View {
-    
-    var body : some View {
-        
-        
-        HStack {
-            
-            ZStack  {
+struct MysteriesCardsView: View {
+    let mystery: Mystery
+
+    private var solvedAnswer: String {
+        guard mystery.options.indices.contains(mystery.answerIndex) else { return "" }
+        return mystery.options[mystery.answerIndex]
+    }
+
+    var body: some View {
+        HStack(spacing: 12) {
+            ZStack {
                 Circle()
-                    .fill(.ultraThinMaterial)
-                    .frame(width: 30, height: 30)
-                         
-                Image(systemName: "magnifyingglass")
-                    .font(.system(size: 10, weight: .semibold, design: .rounded))
-                    .foregroundStyle(SketchTheme.surfaceCards)
+                    .fill(mystery.isSolved ? SketchTheme.primaryAccent.opacity(0.12) : SketchTheme.surfaceCards.opacity(0.2))
+                    .frame(width: 36, height: 36)
+
+                Image(systemName: mystery.isSolved ? "checkmark" : "magnifyingglass")
+                    .font(.system(size: 13, weight: .semibold, design: .rounded))
+                    .foregroundStyle(mystery.isSolved ? SketchTheme.primaryAccent : SketchTheme.surfaceCards)
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(mystery.isSolved ? mystery.question : "Open Question")
+                    .font(.system(mystery.isSolved ? .subheadline : .caption, design: .rounded, weight: .semibold))
+                    .foregroundStyle(mystery.isSolved ? SketchTheme.primaryAccent : SketchTheme.surfaceCards)
+
+                Text(mystery.isSolved ? solvedAnswer : mystery.question)
+                    .font(.system(mystery.isSolved ? .caption : .headline, design: .serif, weight: mystery.isSolved ? .regular : .bold))
+                    .foregroundStyle(mystery.isSolved ? SketchTheme.secondaryAccent : SketchTheme.surfaceCards)
                     .fixedSize(horizontal: false, vertical: true)
             }
-            
-            VStack (alignment : .leading){
-                
-                Text("Open Question")
-                    .font(.system(.caption, design: .rounded, weight: .semibold))
-                    .foregroundStyle(SketchTheme.surfaceCards)
-                
-                Text("Question?")
-                    .font(.system(.headline, design: .serif, weight: .bold))
-                    .foregroundStyle(SketchTheme.surfaceCards)
-                
-            }
-        
-            
         }
-        .padding(10)
-        .frame(width: 330, height: 70, alignment: .leading)
+        .padding(14)
+        .frame(maxWidth: .infinity, minHeight: 74, alignment: .leading)
         .background(
-            SketchTheme.primaryAccent, in : RoundedRectangle(cornerRadius: 10)
+            mystery.isSolved ? SketchTheme.surfaceCards : SketchTheme.primaryAccent,
+            in: RoundedRectangle(cornerRadius: 16)
         )
-        .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 4)
+        .shadow(color: .black.opacity(mystery.isSolved ? 0.08 : 0.25), radius: 8, x: 0, y: 4)
     }
 }
-
 struct CluesListView : View {
     
     var body : some View {
@@ -121,7 +120,7 @@ struct QuizzesCardView : View {
 
 #Preview {
     
-    MysteriesCardsView()
+   // MysteriesCardsView()
     
     CluesListView()
     

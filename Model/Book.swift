@@ -95,7 +95,8 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
             self.synopsis = ""
         }
 
-        self.currentChapter = (try? container.decodeIfPresent(Int.self, forKey: .currentChapter)) ?? 1
+        
+        self.currentChapter = try container.decodeIfPresent(Int.self, forKey: .currentChapter) ?? 1
         self.coverImage = try container.decodeIfPresent(String.self, forKey: .coverImage) ?? ""
         // Books always decode without details (details are loaded on demand for a single selected book)
         self.checkpoints = []

@@ -27,7 +27,7 @@ struct ListBooksView: View {
                 .ignoresSafeArea()
 
             VStack(alignment: .leading, spacing: 20) {
-                Text(bookStore?.selectedBook == nil ? "Pick a Book to start with" : "Other one")
+                Text(bookStore?.selectedBook == nil ? "Pick a Book to start with" : "Our Books")
                     .font(.system(.largeTitle, design: .serif, weight: .bold))
                     .foregroundStyle(SketchTheme.primaryAccent)
                     .padding(.top, 60)

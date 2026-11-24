@@ -50,9 +50,47 @@ struct CharacterCardGridView : View {
         
     }
     
+    
+    
 }
 
-struct CharacterDescriptionView : View {
+struct LockedCharacterCard : View {
+    
+    var body : some View {
+        
+        HStack {
+            
+            Image(systemName : "person.fill")
+                .resizable()
+                .frame(width: 20, height:20)
+                .foregroundStyle(SketchTheme.secondaryAccent.opacity(0.3))
+                .frame(width: 32, height: 32)
+                .background(
+                    SketchTheme.secondaryAccent.opacity(0.4), in : Circle()
+                )
+            
+            Capsule()
+                .frame(width:80, height : 10)
+                .foregroundStyle(SketchTheme.secondaryAccent.opacity(0.3))
+                .padding()
+            
+            
+        }
+        .padding(12)
+        .frame(maxWidth: 200, minHeight: 70, alignment: .leading)
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .strokeBorder(
+                    SketchTheme.secondaryAccent.opacity(0.35),
+                    style: StrokeStyle(lineWidth: 1.5, dash: [4, 4])
+                )
+        )
+    }
+    
+    
+}
+
+struct CharacterDescriptionCardView : View {
     
     var body : some View {
         
@@ -97,5 +135,5 @@ struct CharacterDescriptionView : View {
 }
 
 #Preview {
-    
+    LockedCharacterCard()
 }
