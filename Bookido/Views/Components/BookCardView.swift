@@ -45,8 +45,8 @@ struct BookCardView : View {
             
             
         }
-        
-        .padding(16)
+        .padding(.horizontal, 16)
+        .frame(width : 380, height : 120)
         .background(
             SketchTheme.surfaceCards, in: RoundedRectangle(cornerRadius: 20)
         )
@@ -54,4 +54,10 @@ struct BookCardView : View {
     }
         
         
+}
+
+#Preview {
+    
+    BookCardView()
+    
 }
