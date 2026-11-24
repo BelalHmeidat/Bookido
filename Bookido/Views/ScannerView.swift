@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ScannerView: View {
-    let isOnboarding: Bool
     @Environment(\.dismiss) private var dismiss
     @Environment(BookStore.self) private var bookStore: BookStore?
     @AppStorage(BookStore.selectedBookStorageKey) private var selectedBookIdString: String = ""
@@ -31,7 +30,7 @@ struct ScannerView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
 
-                if isOnboarding {
+                if bookStore?.selectedBook == nil {
                     Button {
                         // Simulate scanning the starter book
                         if let firstBook = bookStore?.books.first {
@@ -55,7 +54,7 @@ struct ScannerView: View {
             }
             .frame(maxWidth: .infinity)
 
-            if isOnboarding {
+            if bookStore?.selectedBook != nil {
                 Button {
                     dismiss()
                 } label: {
@@ -72,7 +71,5 @@ struct ScannerView: View {
 }
 
 #Preview {
-    ScannerView(
-        isOnboarding: true
-    )
+    ScannerView()
 }

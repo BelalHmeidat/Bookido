@@ -9,12 +9,14 @@ import SwiftUI
 
 struct CharacterCardGridView : View {
     
+    let character : Character
+    
     
     var body : some View {
         
         HStack {
             
-            Text("J")
+            Text(character.name.prefix(1))
                 .font(.system(.subheadline, design: .serif, weight: .bold))
                 .foregroundStyle(SketchTheme.surfaceCards)
                 .padding(15)
@@ -22,11 +24,11 @@ struct CharacterCardGridView : View {
             
             VStack {
                 
-                Text("Jason GTA")
+                Text(character.name)
                     .font(.system(.subheadline, design: .rounded, weight: .bold))
                     .foregroundStyle(SketchTheme.primaryAccent)
                 
-                Text("small description")
+                Text(character.quote)
                     .font(.system(.caption, design: .rounded, weight: .regular))
                     .foregroundStyle(SketchTheme.primaryAccent)
                 
@@ -95,9 +97,5 @@ struct CharacterDescriptionView : View {
 }
 
 #Preview {
-    
-    CharacterCardGridView()
-    
-    CharacterDescriptionView()
     
 }

@@ -61,10 +61,10 @@ struct OnBoardingView: View {
             .padding()
         }
         .fullScreenCover(isPresented: $showScanner) {
-            ScannerView(isOnboarding: true)
+            ScannerView()
         }
         .fullScreenCover(isPresented: $showListBooks) {
-            ListBooksView(isOnboarding: true)
+            ListBooksView()
         }
     }
 }

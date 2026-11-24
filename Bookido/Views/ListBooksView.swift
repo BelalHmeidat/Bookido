@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListBooksView: View {
-    let isOnboarding: Bool
+    // let isOnboarding: Bool NOT NEEDED - We check whether there is a bookStore.selectedBook
     @Environment(\.dismiss) private var dismiss
     @Environment(BookStore.self) private var bookStore: BookStore?
     @State private var fallbackBooks: [Book] = []
@@ -19,6 +19,7 @@ struct ListBooksView: View {
         }
         return fallbackBooks
     }
+    
 
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -26,7 +27,7 @@ struct ListBooksView: View {
                 .ignoresSafeArea()
 
             VStack(alignment: .leading, spacing: 20) {
-                Text("Pick a Book to start with")
+                Text(bookStore?.selectedBook == nil ? "Pick a Book to start with" : "Other one")
                     .font(.system(.largeTitle, design: .serif, weight: .bold))
                     .foregroundStyle(SketchTheme.primaryAccent)
                     .padding(.top, 60)
@@ -48,17 +49,15 @@ struct ListBooksView: View {
                 }
             }
 
-            if isOnboarding {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.headline)
-                        .foregroundStyle(SketchTheme.primaryAccent)
-                        .padding(12)
-                        .background(.ultraThinMaterial, in: Circle())
-                        .padding()
-                }
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.headline)
+                    .foregroundStyle(SketchTheme.primaryAccent)
+                    .padding(12)
+                    .background(.ultraThinMaterial, in: Circle())
+                    .padding()
             }
         }
         .task {
@@ -76,6 +75,5 @@ struct ListBooksView: View {
 
 #Preview {
     ListBooksView(
-        isOnboarding: true
     )
 }
