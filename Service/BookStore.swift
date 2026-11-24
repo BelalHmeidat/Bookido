@@ -1,6 +1,6 @@
 //
 //  BookStore.swift
-//  MyApp
+//  Bookido
 //
 //  Created by Belal Hmeidat on 17/11/2026.
 //
@@ -8,23 +8,7 @@
 import Foundation
 import SwiftUI
 
-/// Represents the root payload structure of `BookData.json`.
-public struct BookDataPayload: Codable, Sendable {
-    public var currentBookID: UUID?
-    public var savedBooks: [Book]
-
-    enum CodingKeys: String, CodingKey {
-        case currentBookID
-        case savedBooks
-    }
-
-    public init(currentBookID: UUID? = nil, savedBooks: [Book] = []) {
-        self.currentBookID = currentBookID
-        self.savedBooks = savedBooks
-    }
-}
-
-/// Observable local data store managing books loaded from bundled JSON.
+/// Observable local UI store managing book state and reader interactions.
 @Observable
 public final class BookStore: @unchecked Sendable {
     public static let selectedBookStorageKey = "selectedBookId"
@@ -53,24 +37,26 @@ public final class BookStore: @unchecked Sendable {
             return books.first { $0.id == selectedBookId }
         }
         set {
-            selectedBookId = newValue?.id
-            if let id = newValue?.id {
-                UserDefaults.standard.set(id.uuidString, forKey: Self.selectedBookStorageKey)
+            if let newBook = newValue {
+                selectBook(id: newBook.id)
             } else {
-                UserDefaults.standard.removeObject(forKey: Self.selectedBookStorageKey)
+                clearSelection()
             }
         }
     }
 
+    // MARK: - Book Selection
+
     /// Selects a book and persists the choice to UserDefaults.
     public func selectBook(_ book: Book) {
-        self.selectedBook = book
+        selectBook(id: book.id)
     }
 
-    /// Selects a book by its UUID and persists the choice to UserDefaults.
+    /// Selects a book by its UUID, persists the choice, and hydrates its checkpoints on demand.
     public func selectBook(id: UUID) {
         self.selectedBookId = id
         UserDefaults.standard.set(id.uuidString, forKey: Self.selectedBookStorageKey)
+        hydrateDetailsIfNeeded(for: id)
     }
 
     /// Clears the selected book and removes the persisted key.
@@ -79,17 +65,31 @@ public final class BookStore: @unchecked Sendable {
         UserDefaults.standard.removeObject(forKey: Self.selectedBookStorageKey)
     }
 
-    /// Loads the books and restores the user's selected book from persistence if available.
+    /// Hydrates checkpoints and characters on demand for a specific book if not yet loaded.
+    public func hydrateDetailsIfNeeded(for bookId: UUID) {
+        guard let index = books.firstIndex(where: { $0.id == bookId }),
+              books[index].checkpoints.isEmpty else { return }
+        if let details = try? BookDataService.shared.loadDetails(for: bookId) {
+            books[index].checkpoints = details.checkpoints
+            books[index].characters = details.characters
+        }
+    }
+
+    // MARK: - Library Loading
+
+    /// Loads the lightweight book list and restores the user's selected book with details.
     @discardableResult
-    public func loadBooks(fileName: String = "BookData", bundle: Bundle = .main) throws -> [Book] {
+    public func loadBooks() throws -> [Book] {
         do {
-            let (loadedBooks, _) = try Self.loadPayloadFromJSON(fileName: fileName, bundle: bundle)
+            let loadedBooks = try BookDataService.shared.loadBooks()
             self.books = loadedBooks
+
             // Restore user selection from persistence if valid
             if let savedIDString = UserDefaults.standard.string(forKey: Self.selectedBookStorageKey),
                let savedUUID = UUID(uuidString: savedIDString),
                loadedBooks.contains(where: { $0.id == savedUUID }) {
                 self.selectedBookId = savedUUID
+                hydrateDetailsIfNeeded(for: savedUUID)
             } else {
                 self.selectedBookId = nil
             }
@@ -99,53 +99,6 @@ public final class BookStore: @unchecked Sendable {
             self.loadError = error.localizedDescription
             self.books = []
             throw error
-        }
-    }
-
-    /// Static helper to decode an array of books from a given bundled JSON resource.
-    /// Supports both root payload dictionaries (`{"currentBookID": ..., "savedBooks": [...]}`) and raw arrays (`[Book]`).
-    public static func loadFromJSON(
-        fileName: String = "BookData",
-        bundle: Bundle = .main
-    ) throws -> [Book] {
-        let (books, _) = try loadPayloadFromJSON(fileName: fileName, bundle: bundle)
-        return books
-    }
-
-    /// Loads the books and the currently selected book ID from a bundled JSON resource.
-    public static func loadPayloadFromJSON(
-        fileName: String = "BookData",
-        bundle: Bundle = .main
-    ) throws -> (books: [Book], currentBookID: UUID?) {
-        guard let fileURL = bundle.url(forResource: fileName, withExtension: "json") else {
-            throw BookStoreError.fileNotFound(fileName: "\(fileName).json")
-        }
-
-        let data = try Data(contentsOf: fileURL)
-        return try decodePayload(from: data)
-    }
-
-    /// Convenience decoder directly from raw JSON string (ideal for previews and unit tests).
-    public static func decode(from jsonString: String) throws -> [Book] {
-        guard let data = jsonString.data(using: .utf8) else {
-            throw BookStoreError.invalidEncoding
-        }
-        let (books, _) = try decodePayload(from: data)
-        return books
-    }
-
-    /// Decodes either a `BookDataPayload` dictionary or a raw `[Book]` array from Data.
-    public static func decodePayload(from data: Data) throws -> (books: [Book], currentBookID: UUID?) {
-        let decoder = JSONDecoder()
-        do {
-            let payload = try decoder.decode(BookDataPayload.self, from: data)
-            return (payload.savedBooks, payload.currentBookID)
-        } catch let payloadError {
-            // Fallback: If not formatted as a payload dictionary, attempt decoding as a raw [Book] array
-            if let books = try? decoder.decode([Book].self, from: data) {
-                return (books, nil)
-            }
-            throw payloadError
         }
     }
 
@@ -172,7 +125,6 @@ public final class BookStore: @unchecked Sendable {
             if books[bookIndex].checkpoints[cpIndex].unlockedAt == nil {
                 books[bookIndex].checkpoints[cpIndex].unlockedAt = Date()
             }
-            // Note: Associated characters and locations are dynamically unlocked via checkpoints.
         }
     }
 }

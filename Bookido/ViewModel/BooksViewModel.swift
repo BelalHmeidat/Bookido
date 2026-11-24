@@ -18,7 +18,7 @@ class BooksViewModel {
 
     func loadBooks() {
         do {
-            books = try BookStore.loadFromJSON(fileName: "BookData")
+            books = try BookDataService.shared.loadBooks()
         } catch {
             print("Failed to load books: \(error.localizedDescription)")
         }

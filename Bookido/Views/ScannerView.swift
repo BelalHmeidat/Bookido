@@ -34,7 +34,7 @@ struct ScannerView: View {
                 if isOnboarding {
                     Button {
                         // Simulate scanning the starter book
-                        if let firstBook = bookStore?.books.first ?? (try? BookStore.loadFromJSON())?.first {
+                        if let firstBook = bookStore?.books.first {
                             bookStore?.selectBook(firstBook)
                             selectedBookIdString = firstBook.id.uuidString
                         }

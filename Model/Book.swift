@@ -16,7 +16,6 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
     public var year: Int?
     public var genre: String
     public var numberOfChapters: Int
-    public var numberOfCheckpoints: Int
     public var synopsis: String
     public var currentChapter: Int
     public var coverImage: String
@@ -32,7 +31,6 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         case year
         case genre
         case numberOfChapters
-        case numberOfCheckpoints
         case synopsis
         case description
         case currentChapter
@@ -49,12 +47,11 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         year: Int? = nil,
         genre: String,
         numberOfChapters: Int,
-        numberOfCheckpoints: Int = 0,
         synopsis: String,
         currentChapter: Int = 1,
         coverImage: String = "",
-        checkpoints: [Checkpoint] = [],
-        characters: [Character] = []
+        checkpoints: [Checkpoint]? = [],
+        characters: [Character]? = []
     ) {
         self.id = id
         self.isbn = isbn
@@ -63,12 +60,11 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         self.year = year
         self.genre = genre
         self.numberOfChapters = numberOfChapters
-        self.numberOfCheckpoints = numberOfCheckpoints == 0 ? checkpoints.count : numberOfCheckpoints
         self.synopsis = synopsis
         self.currentChapter = currentChapter
         self.coverImage = coverImage
-        self.checkpoints = checkpoints
-        self.characters = characters
+        self.checkpoints = checkpoints ?? []
+        self.characters = characters ?? []
     }
 
     public init(from decoder: Decoder) throws {
@@ -89,7 +85,6 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         self.year = try container.decodeIfPresent(Int.self, forKey: .year)
         self.genre = try container.decode(String.self, forKey: .genre)
         self.numberOfChapters = try container.decode(Int.self, forKey: .numberOfChapters)
-        self.numberOfCheckpoints = try container.decodeIfPresent(Int.self, forKey: .numberOfCheckpoints) ?? 0
 
         // Supports both "synopsis" and "description" keys from BookData.json
         if let decodedSynopsis = try container.decodeIfPresent(String.self, forKey: .synopsis) {
@@ -102,9 +97,15 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
 
         self.currentChapter = try container.decode(Int.self, forKey: .currentChapter)
         self.coverImage = try container.decodeIfPresent(String.self, forKey: .coverImage) ?? ""
-        self.checkpoints = try container.decodeIfPresent([Checkpoint].self, forKey: .checkpoints) ?? []
-        self.characters = try container.decodeIfPresent([Character].self, forKey: .characters) ?? []
 
+        let shouldLoadDetails = (decoder.userInfo[.includeCheckpointsAndCharacters] as? Bool) ?? false
+        if shouldLoadDetails {
+            self.checkpoints = try container.decodeIfPresent([Checkpoint].self, forKey: .checkpoints) ?? []
+            self.characters = try container.decodeIfPresent([Character].self, forKey: .characters) ?? []
+        } else {
+            self.checkpoints = []
+            self.characters = []
+        }
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -116,7 +117,6 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         try container.encode(year, forKey: .year)
         try container.encode(genre, forKey: .genre)
         try container.encode(numberOfChapters, forKey: .numberOfChapters)
-        try container.encode(numberOfCheckpoints, forKey: .numberOfCheckpoints)
         try container.encode(synopsis, forKey: .synopsis)
         try container.encode(currentChapter, forKey: .currentChapter)
         try container.encode(coverImage, forKey: .coverImage)
@@ -164,4 +164,11 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         guard !checkpoints.isEmpty else { return 0 }
         return Int(Double(unlockedCheckpoints.count) / Double(checkpoints.count) * 100)
     }
+}
+
+// MARK: - Decoding Configuration
+
+extension CodingUserInfoKey {
+    /// Flag to control whether checkpoints and characters are decoded. Defaults to false (skips heavy details for lists).
+    public static let includeCheckpointsAndCharacters = CodingUserInfoKey(rawValue: "includeCheckpointsAndCharacters")!
 }

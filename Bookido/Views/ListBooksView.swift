@@ -64,7 +64,7 @@ struct ListBooksView: View {
         }
         .task {
             if availableBooks.isEmpty {
-                fallbackBooks = (try? BookStore.loadFromJSON()) ?? []
+                fallbackBooks = (try? BookDataService.shared.loadBooks()) ?? []
             }
         }
     }
