@@ -34,19 +34,27 @@ struct JourneyView : View {
                     
                     Spacer()
                     
-                    Text("Journey")
-                        .font(.system(.title, design: .serif, weight: .bold))
-                        .foregroundStyle(SketchTheme.primaryAccent)
+                    
+                    VStack {
+                        
+                        Text("Journey")
+                            .font(.system(.title, design: .serif, weight: .bold))
+                            .foregroundStyle(SketchTheme.primaryAccent)
+                        
+                        Text("Some progress indicator")
+                            .font(.system(.footnote, design: .rounded, weight: .regular))
+                            .foregroundStyle(SketchTheme.primaryAccent)
+                    }
+                    
                     
                     Spacer()
                     
                     Menu {
                         
-                        
                         Button {
                             //pass
                         } label : {
-                            Label("Locations", systemImage: "map")
+                            Label("Mysteries", systemImage: "magnifyingglass")
                         }
                         
                         Button {
@@ -58,8 +66,9 @@ struct JourneyView : View {
                         Button {
                             //pass
                         } label : {
-                            Label("Mysteries", systemImage: "magnifyingglass")
+                            Label("Locations", systemImage: "map")
                         }
+                        
                         
                     } label : {
                         Text("\(Image(systemName: "line.3.horizontal"))")
