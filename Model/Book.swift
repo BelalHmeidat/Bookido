@@ -95,17 +95,11 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
             self.synopsis = ""
         }
 
-        self.currentChapter = try container.decode(Int.self, forKey: .currentChapter)
+        self.currentChapter = (try? container.decodeIfPresent(Int.self, forKey: .currentChapter)) ?? 1
         self.coverImage = try container.decodeIfPresent(String.self, forKey: .coverImage) ?? ""
-
-        let shouldLoadDetails = (decoder.userInfo[.includeCheckpointsAndCharacters] as? Bool) ?? false
-        if shouldLoadDetails {
-            self.checkpoints = try container.decodeIfPresent([Checkpoint].self, forKey: .checkpoints) ?? []
-            self.characters = try container.decodeIfPresent([Character].self, forKey: .characters) ?? []
-        } else {
-            self.checkpoints = []
-            self.characters = []
-        }
+        // Books always decode without details (details are loaded on demand for a single selected book)
+        self.checkpoints = []
+        self.characters = []
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -164,11 +158,4 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         guard !checkpoints.isEmpty else { return 0 }
         return Int(Double(unlockedCheckpoints.count) / Double(checkpoints.count) * 100)
     }
-}
-
-// MARK: - Decoding Configuration
-
-extension CodingUserInfoKey {
-    /// Flag to control whether checkpoints and characters are decoded. Defaults to false (skips heavy details for lists).
-    public static let includeCheckpointsAndCharacters = CodingUserInfoKey(rawValue: "includeCheckpointsAndCharacters")!
 }

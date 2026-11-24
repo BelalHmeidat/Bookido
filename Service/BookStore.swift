@@ -12,7 +12,6 @@ import SwiftUI
 @Observable
 public final class BookStore: @unchecked Sendable {
     public static let selectedBookStorageKey = "selectedBookId"
-    public static let onboardingCompletedStorageKey = "hasCompletedOnboarding"
 
     public var books: [Book] = []
     public var selectedBookId: UUID?
@@ -117,15 +116,28 @@ public final class BookStore: @unchecked Sendable {
             throw BookStoreError.checkpointNotFound(id: checkpointId)
         }
 
-        // Record reader selection
+        // Record reader selection in-memory
         books[bookIndex].checkpoints[cpIndex].mystery.selectedOptionIndex = selectedOptionIndex
 
-        // If answered correctly, unlock the checkpoint
-        if books[bookIndex].checkpoints[cpIndex].mystery.isSolved {
-            if books[bookIndex].checkpoints[cpIndex].unlockedAt == nil {
-                books[bookIndex].checkpoints[cpIndex].unlockedAt = Date()
-            }
+        let isCorrect = books[bookIndex].checkpoints[cpIndex].mystery.isSolved
+        if isCorrect && books[bookIndex].checkpoints[cpIndex].unlockedAt == nil {
+            books[bookIndex].checkpoints[cpIndex].unlockedAt = Date()
         }
+
+        // Persist to user progress (Option B)
+        BookDataService.shared.recordMysteryAnswer(
+            bookID: bookId,
+            checkpointID: checkpointId,
+            selectedOptionIndex: selectedOptionIndex,
+            isCorrect: isCorrect
+        )
+    }
+
+    /// Updates the reader's current chapter and persists the progress.
+    public func updateChapter(bookId: UUID, chapter: Int) {
+        guard let bookIndex = books.firstIndex(where: { $0.id == bookId }) else { return }
+        books[bookIndex].currentChapter = chapter
+        BookDataService.shared.updateChapter(bookID: bookId, chapter: chapter)
     }
 }
 

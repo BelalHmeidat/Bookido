@@ -1,6 +1,4 @@
-{
-    "currentBookID": "69540792-b3ba-4104-ad8b-2c5b47bfccf6",
-    "savedBooks": [
+[
     {
         "uuid": "69540792-b3ba-4104-ad8b-2c5b47bfccf6",
         "isbn": "978-0156012195",
@@ -10,7 +8,6 @@
         "genre": "Novella / Philosophical Fiction",
         "numberOfChapters": 27,
         "synopsis": "A stranded aviator in the Sahara Desert meets a young prince fallen to Earth from a tiny asteroid, sparking a poetic exploration of love, loneliness, friendship, and the blindness of adult preoccupations.",
-        "currentChapter": 3,
         "coverImage": "covers/the_little_prince.jpg",
         "checkpoints": [
             {
@@ -18,7 +15,6 @@
                 "title": "The Drawing in the Desert",
                 "icon": "pencil.and.outline",
                 "description": "Crash-landed in the Sahara, the Pilot meets a mysterious boy who instantly recognizes Drawing Number One and asks for a sheep.",
-                "isUnlocked": "2026-11-18T10:15:00Z",
                 "location": {
                     "uuid": "0e28d702-7a43-4c6e-8d7b-313aba45c8c2",
                     "name": "Sahara Desert",
@@ -49,7 +45,6 @@
                 "title": "Custodian of Asteroid B-612",
                 "icon": "sparkles",
                 "description": "Learn about the daily discipline required to protect a tiny home world from invasive roots and care for a proud, fragile flower.",
-                "isUnlocked": null,
                 "location": {
                     "uuid": "b8a349cf-20f1-46fe-939e-9986a85148e3",
                     "name": "Asteroid B-612",
@@ -79,7 +74,6 @@
                 "title": "The Sovereign of Asteroid 325",
                 "icon": "crown.fill",
                 "description": "Visiting neighboring asteroids, the Little Prince encounters a lonely monarch obsessed with universal authority.",
-                "isUnlocked": null,
                 "location": {
                     "uuid": "8ec6c9f7-d371-45c0-b59c-22c426245603",
                     "name": "Asteroid 325",
@@ -107,7 +101,6 @@
                 "title": "The Geographer's Ledger",
                 "icon": "map.fill",
                 "description": "On the sixth asteroid, a scholar who never leaves his desk explains why certain wonders are excluded from his eternal books.",
-                "isUnlocked": null,
                 "location": {
                     "uuid": "fe7689c3-3998-431d-acfe-9fb6c2bd55d5",
                     "name": "Asteroid 330",
@@ -137,7 +130,6 @@
                 "title": "The Secret of the Fox",
                 "icon": "heart.fill",
                 "description": "Distraught upon seeing a garden full of five thousand roses, the Little Prince learns the true meaning of devotion from a wild fox.",
-                "isUnlocked": null,
                 "location": {
                     "uuid": "8af8321a-b41a-4272-90f9-b9b9ba8c6ea2",
                     "name": "Earth — Wheat Field & Orchard",
@@ -167,7 +159,6 @@
                 "title": "Laughter Among the Stars",
                 "icon": "star.fill",
                 "description": "After finding a miraculous well in the desert, the Little Prince prepares to return home to his Rose.",
-                "isUnlocked": null,
                 "location": null,
                 "mystery": {
                     "uuid": "020ba883-7ca9-4560-9f9d-6a7fa44312f4",
@@ -309,7 +300,6 @@
         "genre": "Gothic Horror / Epistolary Novel",
         "numberOfChapters": 27,
         "description": "Told through diary entries, letters, and ship logs, an ancient Transylvanian vampire plots to spread his undead plague to Victorian England, prompting a small alliance led by Professor Abraham Van Helsing to hunt him down.",
-        "currentChapter": 5,
         "coverImage": "covers/dracula.jpg",
         "checkpoints": [
             {
@@ -317,7 +307,6 @@
                 "title": "Guest and Prisoner at Borgo Pass",
                 "icon": "key.fill",
                 "description": "Solicitor Jonathan Harker travels to the Carpathian Mountains to finalize a London estate purchase, only to uncover his host's monstrous nature.",
-                "isUnlocked": "2026-11-18T14:45:00Z",
                 "location": {
                     "uuid": "2d9ce3b0-3f80-4905-87eb-c1e91dfcf08d",
                     "name": "Castle Dracula, Transylvania",
@@ -344,7 +333,6 @@
                 "title": "The Ghost Ship of Whitby",
                 "icon": "ferry.fill",
                 "description": "During a violent tempest on the Yorkshire coast, a Russian schooner runs aground carrying fifty boxes of Transylvanian earth.",
-                "isUnlocked": null,
                 "location": {
                     "uuid": "5390aa2a-7f44-427d-90c5-d0bda50c275e",
                     "name": "Whitby Harbor, England",
@@ -371,7 +359,6 @@
                 "title": "The Bloofer Lady of Hampstead",
                 "icon": "moon.stars.fill",
                 "description": "Following Lucy Westenra's funeral, small children go missing on Hampstead Heath with tiny puncture wounds on their throats.",
-                "isUnlocked": null,
                 "location": {
                     "uuid": "09dcf7e9-5a30-45aa-b6de-d2ac0d735bd2",
                     "name": "Kingstead Cemetery, London",
@@ -398,7 +385,6 @@
                 "title": "Sterilizing Carfax Abbey",
                 "icon": "shield.lefthalf.filled",
                 "description": "Armed with legal records and sacred relics, the Crew of Light infiltrates Dracula's dilapidated estate next to Seward's asylum.",
-                "isUnlocked": null,
                 "location": {
                     "uuid": "de66a16e-f3c5-4a45-bb07-efd33ab84c92",
                     "name": "Carfax Abbey, Purfleet",
@@ -425,7 +411,6 @@
                 "title": "The Telepathic Trance",
                 "icon": "eye.fill",
                 "description": "After Dracula forces Mina to drink his blood, a perilous psychic bond forms between predator and prey.",
-                "isUnlocked": null,
                 "location": null,
                 "mystery": {
                     "uuid": "04f89cd5-a407-468a-be6c-03a0d4dd0a7b",
@@ -448,7 +433,6 @@
                 "title": "Showdown at Sunset",
                 "icon": "sunset.fill",
                 "description": "Racing against the dying light in the snowy Carpathians, the hunters intercept the Szgany cart carrying Dracula's final box.",
-                "isUnlocked": null,
                 "location": {
                     "uuid": "f9920ce9-e846-440d-9112-eda81b71ed2b",
                     "name": "Borgo Pass, Carpathian Mountains",
@@ -654,6 +638,4 @@
             }
         ]
     }
-    ]
-    
-}
+]

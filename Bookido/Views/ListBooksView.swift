@@ -11,7 +11,6 @@ struct ListBooksView: View {
     let isOnboarding: Bool
     @Environment(\.dismiss) private var dismiss
     @Environment(BookStore.self) private var bookStore: BookStore?
-    @AppStorage(BookStore.selectedBookStorageKey) private var selectedBookIdString: String = ""
     @State private var fallbackBooks: [Book] = []
 
     private var availableBooks: [Book] {
@@ -71,7 +70,6 @@ struct ListBooksView: View {
 
     private func select(book: Book) {
         bookStore?.selectBook(book)
-        selectedBookIdString = book.id.uuidString
         dismiss()
     }
 }
