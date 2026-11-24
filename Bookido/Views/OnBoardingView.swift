@@ -8,36 +8,30 @@
 import SwiftUI
 
 struct OnBoardingView: View {
-    
-    @Binding var hasCompletedOnboarding: Bool
-    @State private var showScanner : Bool = false
-    @State private var showListBooks : Bool = false
-    
+    @State private var showScanner: Bool = false
+    @State private var showListBooks: Bool = false
+
     var body: some View {
-        
         ZStack {
-            
             SketchTheme.mainBackground
                 .ignoresSafeArea()
-            
-            VStack{
-                
+
+            VStack {
                 Image("onBoardingGraph")
                     .resizable()
                     .frame(width: 350, height: 300)
-                    
-                
+
                 Text("Every Book Hides a few mysteries.")
                     .font(.system(.largeTitle, design: .serif, weight: .bold))
                     .foregroundStyle(SketchTheme.primaryAccent)
                     .frame(alignment: .center)
-                
+
                 Text("Scan your book, read at your pace, and uncover the story one event at a time.")
                     .font(.system(.callout, design: .rounded, weight: .regular))
                     .foregroundStyle(SketchTheme.primaryAccent)
-                    .frame(width : 300, alignment : .center)
+                    .frame(width: 300, alignment: .center)
                     .padding()
-                
+
                 Button {
                     showScanner = true
                 } label: {
@@ -50,8 +44,7 @@ struct OnBoardingView: View {
                             in: RoundedRectangle(cornerRadius: 10)
                         )
                 }
-                
-                
+
                 Button {
                     showListBooks = true
                 } label: {
@@ -68,23 +61,14 @@ struct OnBoardingView: View {
             .padding()
         }
         .fullScreenCover(isPresented: $showScanner) {
-            ScannerView(
-                isOnboarding: true,
-                hasCompletedOnboarding: $hasCompletedOnboarding
-            )
+            ScannerView(isOnboarding: true)
         }
         .fullScreenCover(isPresented: $showListBooks) {
-            ListBooksView(
-                isOnboarding: true,
-                hasCompletedOnboarding: $hasCompletedOnboarding
-            )
+            ListBooksView(isOnboarding: true)
         }
-    
     }
-
 }
 
 #Preview {
-    OnBoardingView(hasCompletedOnboarding: .constant(false))
+    OnBoardingView()
 }
-   

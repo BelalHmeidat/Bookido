@@ -8,18 +8,52 @@
 import SwiftUI
 
 struct ScannerView: View {
-
     let isOnboarding: Bool
-    @Binding var hasCompletedOnboarding: Bool
     @Environment(\.dismiss) private var dismiss
+    @Environment(BookStore.self) private var bookStore: BookStore?
+    @AppStorage(BookStore.selectedBookStorageKey) private var selectedBookIdString: String = ""
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            
             SketchTheme.darkBackground
                 .ignoresSafeArea()
-            
-            // Camera
+
+            VStack(spacing: 24) {
+                Spacer()
+
+                Image(systemName: "camera.viewfinder")
+                    .font(.system(size: 80))
+                    .foregroundStyle(SketchTheme.accentBlue)
+
+                Text("Point your camera at a book cover or barcode")
+                    .font(.system(.headline, design: .rounded))
+                    .foregroundStyle(SketchTheme.surfaceCards)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 40)
+
+                if isOnboarding {
+                    Button {
+                        // Simulate scanning the starter book
+                        if let firstBook = bookStore?.books.first ?? (try? BookStore.loadFromJSON())?.first {
+                            bookStore?.selectBook(firstBook)
+                            selectedBookIdString = firstBook.id.uuidString
+                        }
+                        dismiss()
+                    } label: {
+                        Text("Simulate Scan (Demo)")
+                            .font(.system(.callout, design: .rounded, weight: .semibold))
+                            .foregroundStyle(SketchTheme.darkBackground)
+                            .frame(width: 220, height: 46)
+                            .background(
+                                SketchTheme.accentBlue,
+                                in: RoundedRectangle(cornerRadius: 10)
+                            )
+                    }
+                }
+
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
 
             if isOnboarding {
                 Button {
@@ -35,4 +69,10 @@ struct ScannerView: View {
             }
         }
     }
+}
+
+#Preview {
+    ScannerView(
+        isOnboarding: true
+    )
 }

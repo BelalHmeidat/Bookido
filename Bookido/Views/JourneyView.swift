@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JourneyView : View {
+    @Environment(BookStore.self) private var bookStore: BookStore
     
     var body : some View {
         
@@ -36,10 +37,10 @@ struct JourneyView : View {
                     
                     
                     VStack {
-                        
-                        Text("Journey")
+                        Text(bookStore.selectedBook?.title ?? "Journey")
                             .font(.system(.title, design: .serif, weight: .bold))
                             .foregroundStyle(SketchTheme.primaryAccent)
+                            .multilineTextAlignment(.center)
                         
                         Text("Some progress indicator")
                             .font(.system(.footnote, design: .rounded, weight: .regular))

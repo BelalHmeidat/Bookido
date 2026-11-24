@@ -27,6 +27,9 @@ public struct BookDataPayload: Codable, Sendable {
 /// Observable local data store managing books loaded from bundled JSON.
 @Observable
 public final class BookStore: @unchecked Sendable {
+    public static let selectedBookStorageKey = "selectedBookId"
+    public static let onboardingCompletedStorageKey = "hasCompletedOnboarding"
+
     public var books: [Book] = []
     public var selectedBookId: UUID?
     public var loadError: String?
@@ -46,21 +49,50 @@ public final class BookStore: @unchecked Sendable {
     /// Primary book currently selected in the user interface.
     public var selectedBook: Book? {
         get {
-            guard let selectedBookId else { return books.first }
+            guard let selectedBookId else { return nil }
             return books.first { $0.id == selectedBookId }
         }
         set {
             selectedBookId = newValue?.id
+            if let id = newValue?.id {
+                UserDefaults.standard.set(id.uuidString, forKey: Self.selectedBookStorageKey)
+            } else {
+                UserDefaults.standard.removeObject(forKey: Self.selectedBookStorageKey)
+            }
         }
     }
 
-    /// Loads the books and selected book ID from `BookData.json` bundled with the application.
+    /// Selects a book and persists the choice to UserDefaults.
+    public func selectBook(_ book: Book) {
+        self.selectedBook = book
+    }
+
+    /// Selects a book by its UUID and persists the choice to UserDefaults.
+    public func selectBook(id: UUID) {
+        self.selectedBookId = id
+        UserDefaults.standard.set(id.uuidString, forKey: Self.selectedBookStorageKey)
+    }
+
+    /// Clears the selected book and removes the persisted key.
+    public func clearSelection() {
+        self.selectedBookId = nil
+        UserDefaults.standard.removeObject(forKey: Self.selectedBookStorageKey)
+    }
+
+    /// Loads the books and restores the user's selected book from persistence if available.
     @discardableResult
     public func loadBooks(fileName: String = "BookData", bundle: Bundle = .main) throws -> [Book] {
         do {
-            let (loadedBooks, currentID) = try Self.loadPayloadFromJSON(fileName: fileName, bundle: bundle)
+            let (loadedBooks, _) = try Self.loadPayloadFromJSON(fileName: fileName, bundle: bundle)
             self.books = loadedBooks
-            self.selectedBookId = currentID ?? loadedBooks.first?.id
+            // Restore user selection from persistence if valid
+            if let savedIDString = UserDefaults.standard.string(forKey: Self.selectedBookStorageKey),
+               let savedUUID = UUID(uuidString: savedIDString),
+               loadedBooks.contains(where: { $0.id == savedUUID }) {
+                self.selectedBookId = savedUUID
+            } else {
+                self.selectedBookId = nil
+            }
             self.loadError = nil
             return loadedBooks
         } catch {

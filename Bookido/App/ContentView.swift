@@ -3,50 +3,22 @@ import Playgrounds
 
 struct ContentView: View {
     @Environment(\.errorManager) private var errorManager
-    @State private var bookStore = BookStore(loadImmediately: false)
+    @State private var bookStore = BookStore(loadImmediately: true)
 
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 20) {
-                if let book = bookStore.selectedBook {
-                    Text(book.title)
-                        .font(.title)
-                        .bold()
-                    Text("By \(book.author)")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                } else {
-                    Text("No Book Loaded")
-                        .font(.headline)
-                        .foregroundStyle(.secondary)
-                }
-
-                Button("Load Library") {
-                    do {
-                        try bookStore.loadBooks()
-                    } catch {
-                        errorManager.handle(error, defaultTitle: "Failed to Load Books")
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-
-                Button("Trigger Missing File Error (Test)") {
-                    do {
-                        try bookStore.loadBooks(fileName: "NonExistentFile")
-                    } catch {
-                        errorManager.handle(error, defaultTitle: "Error Loading Data")
-                    }
-                }
-                .buttonStyle(.bordered)
+        Group {
+            if bookStore.selectedBook != nil {
+                JourneyView()
+            } else {
+                OnBoardingView()
             }
-            .padding()
-            .navigationTitle("Bookido")
-            .task {
-                do {
-                    try bookStore.loadBooks()
-                } catch {
-                    errorManager.handle(error, defaultTitle: "Startup Error")
-                }
+        }
+        .environment(bookStore)
+        .task {
+            do {
+                try bookStore.loadBooks()
+            } catch {
+                errorManager.handle(error, defaultTitle: "Startup Error")
             }
         }
     }

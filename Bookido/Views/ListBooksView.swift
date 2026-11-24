@@ -9,23 +9,44 @@ import SwiftUI
 
 struct ListBooksView: View {
     let isOnboarding: Bool
-    @Binding var hasCompletedOnboarding: Bool
     @Environment(\.dismiss) private var dismiss
+    @Environment(BookStore.self) private var bookStore: BookStore?
+    @AppStorage(BookStore.selectedBookStorageKey) private var selectedBookIdString: String = ""
+    @State private var fallbackBooks: [Book] = []
+
+    private var availableBooks: [Book] {
+        if let storeBooks = bookStore?.books, !storeBooks.isEmpty {
+            return storeBooks
+        }
+        return fallbackBooks
+    }
 
     var body: some View {
         ZStack(alignment: .topLeading) {
             SketchTheme.mainBackground
                 .ignoresSafeArea()
 
-            VStack {
-                
+            VStack(alignment: .leading, spacing: 20) {
                 Text("Pick a Book to start with")
                     .font(.system(.largeTitle, design: .serif, weight: .bold))
                     .foregroundStyle(SketchTheme.primaryAccent)
-                    .frame(alignment: .topLeading)
-                    .padding(60)
-                    
-                
+                    .padding(.top, 60)
+                    .padding(.horizontal, 24)
+
+                ScrollView {
+                    LazyVStack(spacing: 16) {
+                        ForEach(availableBooks) { book in
+                            Button {
+                                select(book: book)
+                            } label: {
+                                BookCardView(viewModel: BookCardViewModel(book: book))
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 40)
+                }
             }
 
             if isOnboarding {
@@ -41,12 +62,22 @@ struct ListBooksView: View {
                 }
             }
         }
+        .task {
+            if availableBooks.isEmpty {
+                fallbackBooks = (try? BookStore.loadFromJSON()) ?? []
+            }
+        }
+    }
+
+    private func select(book: Book) {
+        bookStore?.selectBook(book)
+        selectedBookIdString = book.id.uuidString
+        dismiss()
     }
 }
 
 #Preview {
     ListBooksView(
-        isOnboarding: true,
-        hasCompletedOnboarding: .constant(false)
+        isOnboarding: true
     )
 }
