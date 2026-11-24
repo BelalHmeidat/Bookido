@@ -62,4 +62,3 @@ public final class BookCardViewModel: Identifiable {
         !book.coverImage.isEmpty
     }
 }
-
