@@ -16,13 +16,13 @@ struct ShelfView: View {
     @State private var showListBooks: Bool = false
 
     private let columns = [
-        GridItem(.flexible(), spacing: 20),
-        GridItem(.flexible(), spacing: 20)
+        GridItem(.flexible(), spacing: 20, alignment: .top),
+        GridItem(.flexible(), spacing: 20, alignment: .top)
     ]
 
     var body: some View {
         NavigationStack {
-            ZStack {
+            ZStack(alignment: .topLeading) {
                 SketchTheme.mainBackground
                     .ignoresSafeArea()
 
@@ -30,7 +30,7 @@ struct ShelfView: View {
                     Text("My Books")
                         .font(.system(.largeTitle, design: .serif, weight: .bold))
                         .foregroundStyle(SketchTheme.primaryAccent)
-                        .padding(.top, 24)
+                        .padding(.top, 56)
 
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 20) {
@@ -39,7 +39,21 @@ struct ShelfView: View {
                                     bookStore.selectBook(book)
                                     dismiss()
                                 } label: {
-                                    ShelfBookCoverView(book: book)
+                                    VStack(alignment: .leading, spacing: 8) {
+                                        ShelfBookCoverView(book: book)
+
+                                        HStack(spacing: 8) {
+                                            Text(book.title)
+                                                .font(.system(.subheadline, design: .serif, weight: .semibold))
+                                                .foregroundStyle(SketchTheme.primaryAccent)
+                                                .lineLimit(1)
+
+                                            Spacer(minLength: 4)
+
+                                            ShelfProgressCircle(percentage: book.checkpointProgressPercentage)
+                                        }
+                                        .frame(width: 145)
+                                    }
                                 }
                                 .buttonStyle(.plain)
                             }
@@ -64,6 +78,17 @@ struct ShelfView: View {
                     }
                 }
                 .padding(.horizontal, 24)
+
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.headline)
+                        .foregroundStyle(SketchTheme.primaryAccent)
+                        .padding(12)
+                        .background(.ultraThinMaterial, in: Circle())
+                        .padding()
+                }
             }
             .sheet(isPresented: $showAddBookSheet) {
                 AddBookSheetView(
@@ -86,7 +111,40 @@ struct ShelfView: View {
             .fullScreenCover(isPresented: $showListBooks) {
                 BookListView()
             }
+            .onAppear {
+                for id in bookStore.shelfBookIds {
+                    bookStore.hydrateDetailsIfNeeded(for: id)
+                }
+            }
         }
+    }
+}
+
+struct ShelfProgressCircle: View {
+    let percentage: Int
+
+    private var progress: Double {
+        min(max(Double(percentage) / 100.0, 0), 1)
+    }
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(SketchTheme.secondaryAccent.opacity(0.25), lineWidth: 3)
+
+            Circle()
+                .trim(from: 0, to: progress)
+                .stroke(
+                    SketchTheme.accentBlue,
+                    style: StrokeStyle(lineWidth: 3, lineCap: .round)
+                )
+                .rotationEffect(.degrees(-90))
+
+            Text("\(percentage)%")
+                .font(.system(size: 8, weight: .bold, design: .rounded))
+                .foregroundStyle(SketchTheme.primaryAccent)
+        }
+        .frame(width: 28, height: 28)
     }
 }
 

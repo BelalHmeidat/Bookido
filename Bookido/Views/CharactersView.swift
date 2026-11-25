@@ -25,8 +25,8 @@ struct CharactersView : View {
         let lockedCount: Int = max(0, totalCharacters - unlockedCharacters.count)
         
         let columns = [
-            GridItem(.flexible(), spacing: 12),
-            GridItem(.flexible(), spacing: 12)
+            GridItem(.flexible(), spacing: 16),
+            GridItem(.flexible(), spacing: 16)
         ]
     
         
@@ -37,7 +37,7 @@ struct CharactersView : View {
             
             ScrollView {
                 
-                VStack {
+                VStack(spacing: 16) {
                     
                     Text("Characters")
                         .font(.system(.title, design : .serif, weight : .bold))
@@ -47,7 +47,7 @@ struct CharactersView : View {
                         .font(.system(.callout, design: .rounded, weight: .regular))
                         .foregroundStyle(SketchTheme.primaryAccent)
                     
-                    LazyVGrid (columns: columns, spacing : 12) {
+                    LazyVGrid(columns: columns, spacing: 16) {
                         
                         ForEach (unlockedCharacters) { character in
                             
@@ -74,9 +74,13 @@ struct CharactersView : View {
                         
                         
                     }
+                    .padding(.top, 8)
                     
                     
                 }
+                .padding(.horizontal, 24)
+                .padding(.top, 16)
+                .padding(.bottom, 32)
                 
                 
             }

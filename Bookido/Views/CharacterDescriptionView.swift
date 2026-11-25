@@ -11,10 +11,6 @@ struct CharacterDescriptionView: View {
     let character: Character
     @Environment(\.dismiss) private var dismiss
 
-    private let columns = [
-        GridItem(.adaptive(minimum: 130), spacing: 8)
-    ]
-
     var body: some View {
         ZStack(alignment: .topLeading) {
             SketchTheme.mainBackground
@@ -108,14 +104,15 @@ struct CharacterDescriptionView: View {
                             .font(.system(.title2, design: .serif, weight: .bold))
                             .foregroundStyle(SketchTheme.primaryAccent)
 
-                        LazyVGrid(columns: columns, alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 8) {
                             ForEach(character.relationships) { relationship in
                                 Text(relationship.relation)
-                                    .font(.system(.footnote, design: .rounded, weight: .medium))
+                                    .font(.system(.body, design: .rounded, weight: .medium))
                                     .foregroundStyle(SketchTheme.primaryAccent)
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 6)
-                                    .background(SketchTheme.surfaceCards, in: Capsule())
+                                    .padding(14)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .background(SketchTheme.surfaceCards, in: RoundedRectangle(cornerRadius: 12))
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
                         }
                     }

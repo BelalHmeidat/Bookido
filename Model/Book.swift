@@ -147,9 +147,13 @@ public struct Book: Identifiable, Codable, Hashable, Sendable {
         Set(checkpoints.filter { $0.isUnlocked }.compactMap { $0.location?.id })
     }
 
-    /// All the locations unlocked so far
+    /// All unique locations unlocked so far, preserving discovery order
     public var unlockedLocations: [Location] {
-        checkpoints.filter { $0.isUnlocked }.compactMap { $0.location }
+        var seen = Set<UUID>()
+        return checkpoints
+            .filter { $0.isUnlocked }
+            .compactMap { $0.location }
+            .filter { seen.insert($0.id).inserted }
     }
 
     /// Checkpoint unlock progress ratio from 0 - 100

@@ -62,10 +62,11 @@ struct JourneyView: View {
 
     @State private var showBooksList: Bool = false
     @State private var showCharacters: Bool = false
-    @State private var showLocations: Bool = false
     @State private var showMysteries: Bool = false
     @State private var expandedCheckpointId: UUID? = nil
     @State private var showUnlockedCards: Bool = false
+    @State private var selectedLocationForCard: Location? = nil
+    @State private var selectedCharacter: Character? = nil
 
     private func isNodeExpanded(_ checkpoint: Checkpoint) -> Bool {
         expandedCheckpointId == checkpoint.id
@@ -156,7 +157,7 @@ struct JourneyView: View {
                             Button {
                                 showMysteries = true
                             } label: {
-                                Label("Mysteries", systemImage: "magnifyingglass")
+                                Label("Mysteries", systemImage: "sparkle.magnifyingglass")
                                     .font(.system(.headline))
                             }
 
@@ -164,12 +165,6 @@ struct JourneyView: View {
                                 showCharacters = true
                             } label: {
                                 Label("Characters", systemImage: "person.2")
-                            }
-
-                            Button {
-                                showLocations = true
-                            } label: {
-                                Label("Locations", systemImage: "map")
                             }
 
                             Button {
@@ -216,10 +211,8 @@ struct JourneyView: View {
 
                                             Spacer()
 
-                                            Circle()
-                                                .frame(width: 100, height: 80)
-                                                .foregroundStyle(SketchTheme.darkBackground)
-                                                .shadow(color: .black.opacity(0.08), radius: 6, x: 0, y: 4)
+                                            RotatingUSDZView(modelName: "gramophone", duration: 8.0)
+                                                .frame(width: 110, height: 110)
                                                 .padding(.trailing, 24)
                                         }
                                     }
@@ -253,29 +246,75 @@ struct JourneyView: View {
                                                 bookId: currentBook?.id
                                             )
 
-                                            NodeView(
-                                                viewModel: viewModel,
-                                                onToggleExpand: {
-                                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.78)) {
-                                                        if expandedCheckpointId == checkpoint.id {
-                                                            expandedCheckpointId = nil
-                                                        } else {
+                                            ZStack {
+                                                // Show location map icon in the empty space opposite the unexpanded unlocked node
+                                                if checkpoint.isUnlocked,
+                                                   let location = checkpoint.location,
+                                                   !location.icon.isEmpty,
+                                                   !isNodeExpanded(checkpoint) {
+                                                    Button {
+                                                        selectedLocationForCard = location
+                                                    } label: {
+                                                        CheckpointIconView(
+                                                            name: location.icon,
+                                                            assetSize: 108,
+                                                            symbolSize: 36,
+                                                            symbolColor: SketchTheme.accentBlue,
+                                                            fallbackSymbol: "map.fill"
+                                                        )
+                                                    }
+                                                    .buttonStyle(.plain)
+                                                    .offset(x: -nodeOffset(for: index, checkpoint: checkpoint, screenWidth: screenWidth))
+                                                    .transition(.scale(scale: 0.8).combined(with: .opacity))
+                                                }
+
+                                                NodeView(
+                                                    viewModel: viewModel,
+                                                    onToggleExpand: {
+                                                        withAnimation(.spring(response: 0.5, dampingFraction: 0.78)) {
+                                                            if expandedCheckpointId == checkpoint.id {
+                                                                expandedCheckpointId = nil
+                                                            } else {
+                                                                expandedCheckpointId = checkpoint.id
+                                                                scrollProxy.scrollTo(checkpoint.id, anchor: .center)
+                                                            }
+                                                        }
+                                                    },
+                                                    onUnlocked: {
+                                                        withAnimation(.spring(response: 0.5, dampingFraction: 0.78)) {
                                                             expandedCheckpointId = checkpoint.id
                                                             scrollProxy.scrollTo(checkpoint.id, anchor: .center)
                                                         }
+                                                    },
+                                                    onSelectLocation: { location in
+                                                        selectedLocationForCard = location
+                                                    },
+                                                    onSelectCharacter: { character in
+                                                        selectedCharacter = character
                                                     }
-                                                },
-                                                onUnlocked: {
-                                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.78)) {
-                                                        expandedCheckpointId = checkpoint.id
-                                                        scrollProxy.scrollTo(checkpoint.id, anchor: .center)
-                                                    }
-                                                }
-                                            )
-                                            .frame(maxWidth: .infinity)
-                                            .offset(x: nodeOffset(for: index, checkpoint: checkpoint, screenWidth: screenWidth))
+                                                )
+                                                .frame(maxWidth: .infinity)
+                                                .offset(x: nodeOffset(for: index, checkpoint: checkpoint, screenWidth: screenWidth))
+                                            }
                                             .id(checkpoint.id)
                                         }
+                                    }
+
+                                    // End Node when all checkpoints are unlocked
+                                    if !checkpoints.isEmpty && checkpoints.allSatisfy(\.isUnlocked) {
+                                        let lastIndex = checkpoints.count - 1
+                                        JourneyPathSegment(
+                                            fromX: nodeX(for: lastIndex, checkpoint: checkpoints[lastIndex], screenWidth: screenWidth),
+                                            toX: screenWidth * 0.5
+                                        )
+                                        .stroke(
+                                            SketchTheme.primaryAccent,
+                                            style: StrokeStyle(lineWidth: 1.5, dash: [4, 4])
+                                        )
+                                        .frame(width: screenWidth, height: 60)
+
+                                        EndNodeView()
+                                            .padding(.top, 4)
                                     }
                                 }
                                 .frame(width: screenWidth)
@@ -306,9 +345,6 @@ struct JourneyView: View {
             .navigationDestination(isPresented: $showCharacters) {
                 CharactersView()
             }
-            .navigationDestination(isPresented: $showLocations) {
-                LocationsView()
-            }
             .navigationDestination(isPresented: $showMysteries) {
                 MysteriesView()
             }
@@ -331,6 +367,15 @@ struct JourneyView: View {
             }
             .navigationDestination(isPresented: $showUnlockedCards) {
                 UnlockedCardsView()
+            }
+            .navigationDestination(item: $selectedLocationForCard) { location in
+                UnlockedCardsView(
+                    initialFilter: .location,
+                    initialCardID: "location_\(location.id.uuidString)"
+                )
+            }
+            .navigationDestination(item: $selectedCharacter) { character in
+                CharacterDescriptionView(character: character)
             }
             
             
