@@ -65,6 +65,7 @@ struct JourneyView: View {
     @State private var showLocations: Bool = false
     @State private var showMysteries: Bool = false
     @State private var expandedCheckpointId: UUID? = nil
+    @State private var showUnlockedCards: Bool = false
 
     private func isNodeExpanded(_ checkpoint: Checkpoint) -> Bool {
         expandedCheckpointId == checkpoint.id
@@ -171,6 +172,19 @@ struct JourneyView: View {
                                 Label("Locations", systemImage: "map")
                             }
                         } label: {
+                            
+                            Button {
+                                
+                                showUnlockedCards = true
+                                
+                            } label : {
+                                
+                                Label("Unclocked Cards", systemImage: "apple.books.pages")
+                                
+                            }
+                            
+                            
+                        } label : {
                             Text("\(Image(systemName: "line.3.horizontal"))")
                                 .font(.system(.headline, design: .rounded, weight: .semibold))
                                 .foregroundStyle(SketchTheme.primaryAccent)
@@ -322,6 +336,13 @@ struct JourneyView: View {
             .onChange(of: currentBook?.unlockedCheckpoints.count) { _, _ in
                 expandedCheckpointId = currentBook?.unlockedCheckpoints.last?.id
             }
+            .navigationDestination(isPresented: $showUnlockedCards) {
+                UnlockedCardsView()
+            }
+            
+            
+            
+            
         }
     }
 }
