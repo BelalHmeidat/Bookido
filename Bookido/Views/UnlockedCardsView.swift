@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct UnlockedCardsView: View {
-    @Environment(\.dismiss) private var dismiss
     @Environment(BookStore.self) private var bookStore: BookStore
 
     @State private var selectedCheckpointID: UUID?
@@ -26,8 +25,8 @@ struct UnlockedCardsView: View {
             SketchTheme.mainBackground
                 .ignoresSafeArea()
 
-            VStack(alignment: .leading, spacing: 20) {
-                VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading) {
+                VStack(alignment: .leading) {
                     Text("Unlocked Cards")
                         .font(.system(.largeTitle, design: .serif, weight: .bold))
                         .foregroundStyle(SketchTheme.primaryAccent)
@@ -36,7 +35,6 @@ struct UnlockedCardsView: View {
                         .font(.system(.subheadline, design: .rounded))
                         .foregroundStyle(SketchTheme.secondaryAccent)
                 }
-                .padding(.top, 60)
                 .padding(.horizontal, 24)
 
                 ScrollView {
@@ -56,17 +54,6 @@ struct UnlockedCardsView: View {
                     .padding(.horizontal, 24)
                     .padding(.bottom, 32)
                 }
-            }
-
-            Button {
-                dismiss()
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.headline)
-                    .foregroundStyle(SketchTheme.primaryAccent)
-                    .padding(12)
-                    .background(.ultraThinMaterial, in: Circle())
-                    .padding()
             }
 
             if showExpandedCarousel {

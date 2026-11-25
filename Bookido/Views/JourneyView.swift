@@ -14,6 +14,7 @@ struct JourneyView : View {
     @State private var showCharacters: Bool = false
     @State private var showLocations: Bool = false
     @State private var showMysteries: Bool = false
+    @State private var showUnlockedCards: Bool = false
 
     
     var body : some View {
@@ -79,6 +80,16 @@ struct JourneyView : View {
                                 showLocations = true
                             } label : {
                                 Label("Locations", systemImage: "map")
+                            }
+                            
+                            Button {
+                                
+                                showUnlockedCards = true
+                                
+                            } label : {
+                                
+                                Label("Unclocked Cards", systemImage: "apple.books.pages")
+                                
                             }
                             
                             
@@ -193,6 +204,10 @@ struct JourneyView : View {
             .navigationDestination(isPresented: $showMysteries) {
                 MysteriesView()
             }
+            .navigationDestination(isPresented: $showUnlockedCards) {
+                UnlockedCardsView()
+            }
+            
             
             
             
