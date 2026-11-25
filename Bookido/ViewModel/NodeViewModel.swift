@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct NodeViewModel: Identifiable {
     public let checkpoint: Checkpoint
+    public let unlockedCharacters: [Character]
     public let isNextLocked: Bool
     public let isLastUnlocked: Bool
     public let isExpanded: Bool
@@ -16,12 +17,14 @@ public struct NodeViewModel: Identifiable {
 
     public init(
         checkpoint: Checkpoint,
+        unlockedCharacters: [Character] = [],
         isNextLocked: Bool = false,
         isLastUnlocked: Bool = false,
         isExpanded: Bool = false,
         bookId: UUID? = nil
     ) {
         self.checkpoint = checkpoint
+        self.unlockedCharacters = unlockedCharacters
         self.isNextLocked = isNextLocked
         self.isLastUnlocked = isLastUnlocked
         self.isExpanded = isExpanded
@@ -44,6 +47,15 @@ public struct NodeViewModel: Identifiable {
         checkpoint.description
     }
 
+    public var chapter: Int? {
+        checkpoint.chapter
+    }
+
+    public var chapterText: String? {
+        guard let chapter else { return nil }
+        return "Chapter \(chapter)"
+    }
+
     public var icon: String {
         checkpoint.icon
     }
@@ -54,10 +66,6 @@ public struct NodeViewModel: Identifiable {
 
     public var mystery: Mystery {
         checkpoint.mystery
-    }
-
-    public var unlockedCharacters: [UUID] {
-        checkpoint.unlockedCharacters
     }
 
     public var location: Location? {

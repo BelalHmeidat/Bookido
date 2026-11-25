@@ -234,8 +234,12 @@ struct JourneyView: View {
                                                 .frame(width: screenWidth, height: 60)
                                             }
 
+                                            let unlockedCharacters = checkpoint.unlockedCharacters.compactMap {
+                                                bookStore.getCharacter(id: $0, in: currentBook?.id)
+                                            }
                                             let viewModel = NodeViewModel(
                                                 checkpoint: checkpoint,
+                                                unlockedCharacters: unlockedCharacters,
                                                 isNextLocked: checkpoint.id == nextLockedId,
                                                 isLastUnlocked: checkpoint.id == lastUnlockedId,
                                                 isExpanded: isNodeExpanded(checkpoint),

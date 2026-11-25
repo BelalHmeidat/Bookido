@@ -12,9 +12,11 @@ import SwiftUI
 @Observable
 public final class BookStore: @unchecked Sendable {
     public static let selectedBookStorageKey = "selectedBookId"
+    public static let shelfBooksStorageKey = "shelfBookIds"
 
     public var books: [Book] = []
     public var selectedBookId: UUID?
+    public var shelfBookIds: [UUID] = []
     public var loadError: String?
 
     public init(loadImmediately: Bool = true) {
@@ -44,18 +46,37 @@ public final class BookStore: @unchecked Sendable {
         }
     }
 
+    /// All books currently added to the user's shelf, preserving addition order.
+    public var shelfBooks: [Book] {
+        shelfBookIds.compactMap { id in books.first { $0.id == id } }
+    }
+
     // MARK: - Book Selection
+
+    /// Adds a book to the user's shelf if not already present and persists the shelf.
+    public func addToShelf(_ book: Book) {
+        addToShelf(id: book.id)
+    }
+
+    /// Adds a book by its UUID to the user's shelf if not already present and persists the shelf.
+    public func addToShelf(id: UUID) {
+        if !shelfBookIds.contains(id) {
+            shelfBookIds.append(id)
+            UserDefaults.standard.set(shelfBookIds.map(\.uuidString), forKey: Self.shelfBooksStorageKey)
+        }
+        hydrateDetailsIfNeeded(for: id)
+    }
 
     /// Selects a book and persists the choice to UserDefaults.
     public func selectBook(_ book: Book) {
         selectBook(id: book.id)
     }
 
-    /// Selects a book by its UUID, persists the choice, and hydrates its checkpoints on demand.
+    /// Selects a book by its UUID, adds it to the shelf if needed, persists the choice, and hydrates its checkpoints on demand.
     public func selectBook(id: UUID) {
         self.selectedBookId = id
         UserDefaults.standard.set(id.uuidString, forKey: Self.selectedBookStorageKey)
-        hydrateDetailsIfNeeded(for: id)
+        addToShelf(id: id)
     }
 
     /// Clears the selected book and removes the persisted key.
@@ -89,12 +110,25 @@ public final class BookStore: @unchecked Sendable {
             let loadedBooks = try BookDataService.shared.loadBooks()
             self.books = loadedBooks
 
+            // Restore user shelf from persistence
+            let validBookIDs = Set(loadedBooks.map(\.id))
+            let savedShelfStrings = UserDefaults.standard.stringArray(forKey: Self.shelfBooksStorageKey) ?? []
+            var restoredShelfIDs: [UUID] = []
+            for uuidString in savedShelfStrings {
+                if let uuid = UUID(uuidString: uuidString),
+                   validBookIDs.contains(uuid),
+                   !restoredShelfIDs.contains(uuid) {
+                    restoredShelfIDs.append(uuid)
+                }
+            }
+            self.shelfBookIds = restoredShelfIDs
+
             // Restore user selection from persistence if valid
             if let savedIDString = UserDefaults.standard.string(forKey: Self.selectedBookStorageKey),
                let savedUUID = UUID(uuidString: savedIDString),
-               loadedBooks.contains(where: { $0.id == savedUUID }) {
+               validBookIDs.contains(savedUUID) {
                 self.selectedBookId = savedUUID
-                hydrateDetailsIfNeeded(for: savedUUID)
+                addToShelf(id: savedUUID)
             } else {
                 self.selectedBookId = nil
             }
@@ -144,6 +178,17 @@ public final class BookStore: @unchecked Sendable {
         guard let bookIndex = books.firstIndex(where: { $0.id == bookId }) else { return }
         books[bookIndex].currentChapter = chapter
         BookDataService.shared.updateChapter(bookID: bookId, chapter: chapter)
+    }
+
+    // MARK: - Character Lookup
+
+    /// Returns the character matching the given UUID in the specified book (or the selected book if nil).
+    public func getCharacter(id: UUID, in bookId: UUID? = nil) -> Character? {
+        let targetBook = bookId.flatMap { targetId in books.first { $0.id == targetId } } ?? selectedBook
+        if let character = targetBook?.characters.first(where: { $0.id == id }) {
+            return character
+        }
+        return books.lazy.flatMap(\.characters).first { $0.id == id }
     }
 }
 

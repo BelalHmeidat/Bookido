@@ -34,10 +34,10 @@ struct ShelfView: View {
 
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 20) {
-                            if let book = bookStore.selectedBook {
-                                NavigationLink {
-                                    JourneyView()
-                                        .navigationBarBackButtonHidden(true)
+                            ForEach(bookStore.shelfBooks) { book in
+                                Button {
+                                    bookStore.selectBook(book)
+                                    dismiss()
                                 } label: {
                                     ShelfBookCoverView(book: book)
                                 }

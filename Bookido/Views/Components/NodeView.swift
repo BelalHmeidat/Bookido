@@ -41,7 +41,6 @@ struct NodeView: View {
     var onToggleExpand: (() -> Void)? = nil
     var onUnlocked: (() -> Void)? = nil
 
-    @Environment(BookStore.self) private var bookStore: BookStore
     @State private var showMysteryPopup: Bool = false
 
     var body: some View {
@@ -83,8 +82,8 @@ struct NodeView: View {
                 // Unlocked characters discovered at this checkpoint
                 if !viewModel.unlockedCharacters.isEmpty {
                     HStack(spacing: 8) {
-                        ForEach(viewModel.unlockedCharacters, id: \.self) { _ in
-                            Text("★")
+                        ForEach(viewModel.unlockedCharacters) { character in
+                            Text(character.name.prefix(1))
                                 .font(.system(.footnote, design: .serif, weight: .bold))
                                 .foregroundStyle(SketchTheme.surfaceCards)
                                 .frame(width: 28, height: 28)
@@ -103,6 +102,22 @@ struct NodeView: View {
                 in: RoundedRectangle(cornerRadius: 20)
             )
             .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+            .overlay(alignment: .topLeading) {
+                // Checkpoint chapter badge in the top-left corner of the card
+                if let chapterText = viewModel.chapterText {
+                    Text(chapterText)
+                        .font(.system(.caption, design: .rounded, weight: .semibold))
+                        .foregroundStyle(SketchTheme.accentBlue)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 4)
+                        .background(
+                            SketchTheme.accentBlue.opacity(0.12),
+                            in: Capsule()
+                        )
+                        .padding(.top, 14)
+                        .padding(.leading, 14)
+                }
+            }
             .overlay(alignment: .top) {
                 // Checkpoint icon badge on top of the card
                 ZStack {

@@ -68,7 +68,11 @@ struct BookListView: View {
     }
 
     private func select(book: Book) {
-        bookStore?.selectBook(book)
+        if bookStore?.selectedBook == nil {
+            bookStore?.selectBook(book)
+        } else {
+            bookStore?.addToShelf(book)
+        }
         dismiss()
     }
 }
