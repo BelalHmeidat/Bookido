@@ -1,25 +1,26 @@
 [
     {
         "uuid": "69540792-b3ba-4104-ad8b-2c5b47bfccf6",
-        "isbn": "978-0156012195",
+        "isbn": "978-0140301847",
         "title": "The Little Prince",
         "author": "Antoine de Saint-Exupéry",
         "year": 1943,
         "genre": "Novella / Philosophical Fiction",
         "numberOfChapters": 27,
-        "synopsis": "A stranded aviator in the Sahara Desert meets a young prince fallen to Earth from a tiny asteroid, sparking a poetic exploration of love, loneliness, friendship, and the blindness of adult preoccupations.",
+        "synopsis": "Stranded in the Sahara with a broken engine and a week of water, a pilot meets a small boy from a far-off asteroid. Over the days that follow, the boy tells of his Rose, his journey across six tiny worlds of strange grown-ups, and the fox who taught him what it means to tame someone, until the pilot learns again to see with the heart.",
         "coverImage": "covers/the_little_prince.jpg",
         "checkpoints": [
             {
                 "uuid": "125f54d6-8164-4904-9c2a-2a61588d741a",
                 "title": "The Drawing in the Desert",
-                "icon": "pencil.and.outline",
                 "chapter": 2,
-                "description": "Crash-landed in the Sahara, the Pilot meets a mysterious boy who instantly recognizes Drawing Number One and asks for a sheep.",
+                "icon": "boa_elephant_S",
+                "description": "Stranded in the Sahara with water for a week, the Pilot is woken at dawn by a small boy who sees the elephant inside Drawing Number One at once, turns down three sheep, and is delighted with a simple box.",
                 "location": {
                     "uuid": "0e28d702-7a43-4c6e-8d7b-313aba45c8c2",
                     "name": "Sahara Desert",
-                    "icon": "sun.dust.fill"
+                    "icon": "sahara_desert_map",
+                    "description": "A sea of sand a thousand miles from any inhabited place, where the Pilot's engine breaks down and he has barely enough drinking water for a week. Here, waking at dawn after his first night alone on the sand, he hears a small voice asking him to draw a sheep."
                 },
                 "mystery": {
                     "uuid": "125f54d6-8164-4904-9c2a-2a61588d741a",
@@ -33,7 +34,8 @@
                     "answerIndex": 1,
                     "clues": [
                         "The narrator drew it at age six after reading a book about primeval forests.",
-                        "He had to draw an 'inside' version so grown-ups could finally understand it."
+                        "He had to draw an 'inside' version so grown-ups could finally understand it.",
+                        "In the desert, a boy rejects it on sight: the snake is too dangerous, and the animal inside far too big for where he lives."
                     ]
                 },
                 "unlockedCharacters": [
@@ -44,13 +46,14 @@
             {
                 "uuid": "eb28f53b-bb0f-468e-be25-ed410ceca0fa",
                 "title": "Custodian of Asteroid B-612",
-                "icon": "sparkles",
                 "chapter": 5,
-                "description": "Learn about the daily discipline required to protect a tiny home world from invasive roots and care for a proud, fragile flower.",
+                "icon": "baobab_sprouts_S",
+                "description": "Day by day the Pilot pieces together the boy's home: an asteroid barely bigger than a house, where baobab sprouts must be pulled every morning, a chair is moved to watch 43 sunsets, and a proud Rose with four thorns finally lets him go.",
                 "location": {
                     "uuid": "b8a349cf-20f1-46fe-939e-9986a85148e3",
                     "name": "Asteroid B-612",
-                    "icon": "globe.americas.fill"
+                    "icon": "asteroid_b612_map",
+                    "description": "The Little Prince's home, a planet barely bigger than a house, glimpsed only once through a telescope by a Turkish astronomer. It has three volcanoes that reach his knees, two active and one extinct, soil full of baobab seeds that must be pulled up every morning, and a single Rose. It is so small that he can watch the sunset again just by moving his chair a few steps."
                 },
                 "mystery": {
                     "uuid": "eb28f53b-bb0f-468e-be25-ed410ceca0fa",
@@ -63,7 +66,8 @@
                     ],
                     "answerIndex": 2,
                     "clues": [
-                        "The Little Prince compares these dangerous plants to rosebushes while they are still small.",
+                        "He is relieved to hear that sheep eat small bushes.",
+                        "While they are still small, these plants look almost exactly like rosebushes.",
                         "If attended to too late, their roots bore right through a tiny asteroid."
                     ]
                 },
@@ -74,13 +78,14 @@
             {
                 "uuid": "d7c3a707-57e1-49f8-9330-0a6ac2903ff6",
                 "title": "The Sovereign of Asteroid 325",
-                "icon": "crown.fill",
                 "chapter": 10,
-                "description": "Visiting neighboring asteroids, the Little Prince encounters a lonely monarch obsessed with universal authority.",
+                "icon": "king_throne_S",
+                "description": "On his first stops among the asteroids, the Little Prince meets a king who claims to rule everything, a conceited man who lives for applause, a drunkard who drinks to forget his shame, and a businessman who counts stars he believes he owns.",
                 "location": {
                     "uuid": "8ec6c9f7-d371-45c0-b59c-22c426245603",
                     "name": "Asteroid 325",
-                    "icon": "crown"
+                    "icon": "asteroid_325_map",
+                    "description": "The first of the six small asteroids, numbered 325 to 330, that the Little Prince visits in search of an occupation and something to learn. Its only inhabitant is a king whose ermine robe covers the whole planet, so there is not even room to sit; somewhere, he says, lives an old rat he hears at night."
                 },
                 "mystery": {
                     "uuid": "d7c3a707-57e1-49f8-9330-0a6ac2903ff6",
@@ -93,22 +98,29 @@
                     ],
                     "answerIndex": 0,
                     "clues": [
+                        "When the Little Prince can't stop yawning, the King simply orders him to yawn.",
                         "He insists his authority rests first and foremost on reason.",
-                        "When asked to order a sunset, he explains he must wait until the exact minute conditions are favorable."
+                        "Asked to order a sunset, he checks a large calendar and schedules it for about twenty to eight that evening."
                     ]
                 },
-                "unlockedCharacters": []
+                "unlockedCharacters": [
+                    "2d47ca63-a504-4c86-9406-450dd1e5b41d",
+                    "874f642f-f926-4fde-b993-c1eed9e6e696",
+                    "8bf271ae-51ad-4248-b6cf-9226baeeb588",
+                    "2e7ca404-c20d-4db9-bc8e-ab049750240e"
+                ]
             },
             {
                 "uuid": "27928770-924a-44ed-bd20-ad288e2e8793",
                 "title": "The Geographer's Ledger",
-                "icon": "map.fill",
                 "chapter": 15,
-                "description": "On the sixth asteroid, a scholar who never leaves his desk explains why certain wonders are excluded from his eternal books.",
+                "icon": "rose_glass_globe_S",
+                "description": "A lamplighter lights and puts out his lamp once a minute out of loyalty to his orders; then, on the sixth asteroid, a scholar who never leaves his desk refuses to record flowers and sends the Little Prince to Earth.",
                 "location": {
                     "uuid": "fe7689c3-3998-431d-acfe-9fb6c2bd55d5",
                     "name": "Asteroid 330",
-                    "icon": "book.closed.fill"
+                    "icon": "asteroid_330_map",
+                    "description": "The sixth planet, ten times larger than the one before and the most majestic the Little Prince has ever seen, home to an old geographer writing enormous books. Just before it he passes the smallest planet of all, with room only for a street lamp and the lamplighter who tends it."
                 },
                 "mystery": {
                     "uuid": "27928770-924a-44ed-bd20-ad288e2e8793",
@@ -122,23 +134,26 @@
                     "answerIndex": 3,
                     "clues": [
                         "Geographers only record things they consider eternal, like mountains and oceans.",
+                        "He doesn't even care whether a volcano is active or extinct, only that the mountain stays.",
                         "Hearing this term makes the Little Prince regret leaving his flower alone for the first time."
                     ]
                 },
                 "unlockedCharacters": [
-                    "955dd5fc-8527-4013-aee0-872e2a4fe4f3"
+                    "955dd5fc-8527-4013-aee0-872e2a4fe4f3",
+                    "2b6378a6-a3bb-4f45-8041-d2e2a4caf2b2"
                 ]
             },
             {
                 "uuid": "e0255733-ff98-4b97-9235-c0cfe34de98a",
                 "title": "The Secret of the Fox",
-                "icon": "heart.fill",
                 "chapter": 21,
-                "description": "Distraught upon seeing a garden full of five thousand roses, the Little Prince learns the true meaning of devotion from a wild fox.",
+                "icon": "wheat_sheaf_S",
+                "description": "On Earth the Little Prince meets a snake in the desert, a lonely three-petalled flower, an echo that only repeats him, and a garden of five thousand roses that breaks his heart, until a fox under an apple tree asks to be tamed.",
                 "location": {
                     "uuid": "8af8321a-b41a-4272-90f9-b9b9ba8c6ea2",
                     "name": "Earth — Wheat Field & Orchard",
-                    "icon": "leaf.fill"
+                    "icon": "earth_wheat_field_orchard_map",
+                    "description": "Earth, the seventh planet, where the Little Prince crosses sand, rocks and snow until he finds a road, a garden of five thousand roses and, beneath an apple tree, a fox. Nearby lie the hunters' village, the vineyard and the golden wheat fields that, once he is tamed, will remind the Fox of the Prince's hair."
                 },
                 "mystery": {
                     "uuid": "e0255733-ff98-4b97-9235-c0cfe34de98a",
@@ -152,20 +167,27 @@
                     "answerIndex": 1,
                     "clues": [
                         "Before this bond, the Fox says the boy is just like a hundred thousand other little boys.",
-                        "Afterward, even the golden color of wheat fields will remind the Fox of the Prince's hair."
+                        "Afterward, even the golden color of wheat fields will remind the Fox of the Prince's hair.",
+                        "Back in the rose garden, the Little Prince tells the roses they are beautiful but empty."
                     ]
                 },
                 "unlockedCharacters": [
+                    "15904496-a67d-466c-8f3e-62ed89358250",
                     "790257da-c543-413c-adde-045929f236d3"
                 ]
             },
             {
                 "uuid": "020ba883-7ca9-4560-9f9d-6a7fa44312f4",
                 "title": "Laughter Among the Stars",
-                "icon": "star.fill",
                 "chapter": 26,
-                "description": "After finding a miraculous well in the desert, the Little Prince prepares to return home to his Rose.",
-                "location": null,
+                "icon": "star_bells_S",
+                "description": "A railway switchman and a merchant of thirst pills show how hurried grown-ups are; out of water on the eighth day, the Pilot and the Little Prince walk all night to find a well, and on the anniversary of his fall the boy keeps an appointment with the snake.",
+                "location": {
+                    "uuid": "e4a6f37f-84f6-4df5-9097-06c2ebc374f5",
+                    "name": "The Well, Sahara Desert",
+                    "icon": "the_well_map",
+                    "description": "A well found at sunrise after a whole night's walk through the desert. Unlike the simple holes dug in the sand of the Sahara, it looks like a village well, with a pulley, a bucket and a rope, though there is no village anywhere near. Beside it stands an old, crumbling stone wall."
+                },
                 "mystery": {
                     "uuid": "020ba883-7ca9-4560-9f9d-6a7fa44312f4",
                     "question": "What lasting gift does the Little Prince leave the Pilot before returning to Asteroid B-612?",
@@ -177,12 +199,14 @@
                     ],
                     "answerIndex": 2,
                     "clues": [
+                        "His star is too small to point out, so it will simply be one of all the stars.",
                         "The Prince says it will feel as though the Pilot has five hundred million little bells.",
                         "Only the Pilot will have stars that know how to laugh when he looks up at night."
                     ]
                 },
                 "unlockedCharacters": [
-                    "15904496-a67d-466c-8f3e-62ed89358250"
+                    "7c835bf9-4e4b-40f5-a461-9d2903f3898c",
+                    "320d5915-a463-47ca-8131-d1c6f191de53"
                 ]
             }
         ],
@@ -192,8 +216,8 @@
                 "name": "The Little Prince",
                 "firstAppearance": "Chapter 2",
                 "role": "Protagonist",
-                "biography": "A young boy with golden hair who lives alone on Asteroid B-612, tending three miniature volcanoes and a single beloved Rose. After a misunderstanding with his Rose, he journeys across six asteroids before arriving on Earth in search of wisdom and friendship.",
-                "personality": "Curious, earnest, persistent in his questions, innocent yet deeply perceptive about human nature.",
+                "biography": "A young boy with golden hair and a golden scarf who lives alone on Asteroid B-612, tending three knee-high volcanoes, pulling up baobab sprouts and caring for a single beloved Rose. Unsettled by her vanity, he leaves with a migration of wild birds, visits six asteroids, and lands in the African desert, where he spends a year before meeting the Pilot.",
+                "personality": "Curious, earnest, never gives up on a question once asked, innocent yet deeply perceptive about human nature.",
                 "relationships": [
                     {
                         "id": "ae2e5d18-b255-4813-a717-9784e9616c97",
@@ -210,6 +234,10 @@
                     {
                         "id": "15904496-a67d-466c-8f3e-62ed89358250",
                         "relation": "Acquaintance who offers him passage back to his asteroid"
+                    },
+                    {
+                        "id": "955dd5fc-8527-4013-aee0-872e2a4fe4f3",
+                        "relation": "The only grown-up he feels he could have befriended"
                     }
                 ],
                 "quote": "What makes the desert beautiful is that somewhere it hides a well.",
@@ -220,12 +248,16 @@
                 "name": "The Pilot (Narrator)",
                 "firstAppearance": "Chapter 1",
                 "role": "Narrator / Deuteragonist",
-                "biography": "An aviator disillusioned by the unimaginative adult world whose plane crashes in the Sahara Desert. Repairing his engine over eight days, he records the Little Prince's stories and rediscovers childlike wonder.",
+                "biography": "A boy whose drawings of a boa were mistaken for a hat, who grew up to become an aviator disillusioned by unimaginative grown-ups. Crash-landed in the Sahara with a week of water, he races to repair his engine while listening to the Little Prince's stories, and six years later writes them down so as not to forget his friend.",
                 "personality": "Reflective, protective, pragmatic yet imaginative at heart, deeply loyal.",
                 "relationships": [
                     {
                         "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
                         "relation": "Friend, listener, and chronicler of the Prince's journey"
+                    },
+                    {
+                        "id": "15904496-a67d-466c-8f3e-62ed89358250",
+                        "relation": "Arrives too late to drive it away from his friend"
                     }
                 ],
                 "quote": "All grown-ups were once children... but only few of them remember it.",
@@ -236,7 +268,7 @@
                 "name": "The Rose",
                 "firstAppearance": "Chapter 8",
                 "role": "Catalyst / Supporting Character",
-                "biography": "A singular, radiant flower that sprouted from a mysterious seed on Asteroid B-612. Though vain and dramatic in hiding her vulnerability, she genuinely loves the Little Prince and urges him to explore the universe without regret.",
+                "biography": "A singular, radiant flower that sprouted from a seed blown in from nowhere on Asteroid B-612. She asks for a screen against drafts and a glass globe at night, and boasts that her four thorns can face tigers. Though vain and dramatic in hiding her vulnerability, she genuinely loves the Little Prince and lets him leave without reproach.",
                 "personality": "Proud, theatrical, delicate, secretly affectionate and courageous.",
                 "relationships": [
                     {
@@ -248,36 +280,68 @@
                 "picture": "characters/rose.png"
             },
             {
-                "uuid": "790257da-c543-413c-adde-045929f236d3",
-                "name": "The Fox",
-                "firstAppearance": "Chapter 21",
-                "role": "Mentor",
-                "biography": "A wise wild fox living on Earth who asks the Little Prince to tame him, revealing that true value comes from time and care invested in another.",
-                "personality": "Wise, patient, observant, gentle, emotionally articulate.",
+                "uuid": "2d47ca63-a504-4c86-9406-450dd1e5b41d",
+                "name": "The King",
+                "firstAppearance": "Chapter 10",
+                "role": "Supporting Character",
+                "biography": "The sole inhabitant of Asteroid 325, a monarch robed in purple and ermine whose cloak covers his whole planet. He believes he reigns over everything, the planets and stars included, and keeps his authority intact by giving only reasonable orders. When the Little Prince leaves, he hastily names him ambassador.",
+                "personality": "Pompous, lonely, courteous, surprisingly reasonable.",
                 "relationships": [
                     {
                         "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
-                        "relation": "Mentor and tamed friend"
+                        "relation": "His first subject, offered the post of Minister of Justice"
                     }
                 ],
-                "quote": "It is only with the heart that one can see rightly; what is essential is invisible to the eye.",
-                "picture": "characters/fox.png"
+                "quote": "«But there is nobody here to judge! We do not know that», the king said to him. «I have not yet made a complete tour of my kingdom. I am very old. There is no room here for a carriage. And it tires me to walk».",
+                "picture": "characters/king.png"
             },
             {
-                "uuid": "15904496-a67d-466c-8f3e-62ed89358250",
-                "name": "The Snake",
-                "firstAppearance": "Chapter 17",
+                "uuid": "874f642f-f926-4fde-b993-c1eed9e6e696",
+                "name": "The Conceited Man",
+                "firstAppearance": "Chapter 11",
                 "role": "Supporting Character",
-                "biography": "A golden desert serpent who is the first creature the Little Prince meets upon landing in Africa, speaking in riddles and possessing the lethal venom that eventually frees the Prince's spirit to return home.",
-                "personality": "Enigmatic, philosophical, solemn, fatalistic.",
+                "biography": "The lone inhabitant of the second asteroid, who sees every visitor as an admirer. He wears a special hat for raising when people cheer, but nobody ever passes by, so he asks the Little Prince to clap his hands again and again.",
+                "personality": "Vain, eager for praise, deaf to anything but compliments.",
                 "relationships": [
                     {
                         "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
-                        "relation": "First earthly acquaintance and guide for his return"
+                        "relation": "Visitor he mistakes for an admirer"
                     }
                 ],
-                "quote": "Whomever I touch, I send back to the earth from whence he came.",
-                "picture": "characters/snake.png"
+                "quote": "I admire you. But what good is that to you?",
+                "picture": "characters/conceited_man.png"
+            },
+            {
+                "uuid": "8bf271ae-51ad-4248-b6cf-9226baeeb588",
+                "name": "The Drunkard",
+                "firstAppearance": "Chapter 12",
+                "role": "Supporting Character",
+                "biography": "The inhabitant of the third asteroid, sitting in silence before a row of empty bottles and a row of full ones. He drinks to forget that he is ashamed, and he is ashamed of drinking, a circle that plunges the Little Prince into deep melancholy.",
+                "personality": "Gloomy, ashamed, withdrawn.",
+                "relationships": [
+                    {
+                        "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+                        "relation": "Brief visitor who wishes he could help him"
+                    }
+                ],
+                "quote": "'Grown-ups really are very, very odd', he said to himself as he continued his journey.",
+                "picture": "characters/drunkard.png"
+            },
+            {
+                "uuid": "2e7ca404-c20d-4db9-bc8e-ab049750240e",
+                "name": "The Businessman",
+                "firstAppearance": "Chapter 13",
+                "role": "Supporting Character",
+                "biography": "A man on the fourth asteroid so absorbed in his sums that he has no time to relight his cigarette. He claims to own 501,622,731 stars simply because he thought of it first, and 'banks' them by writing the number on a slip of paper locked in a drawer.",
+                "personality": "Self-important, precise, joyless, endlessly busy.",
+                "relationships": [
+                    {
+                        "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+                        "relation": "Challenged by the boy's idea that owning something means being useful to it"
+                    }
+                ],
+                "quote": "Little golden objects that set lazy men to idle dreaming. As for me, I am concerned with matters of consequence. There is no time for idle dreaming in my life.",
+                "picture": "characters/businessman.png"
             },
             {
                 "uuid": "955dd5fc-8527-4013-aee0-872e2a4fe4f3",
@@ -294,34 +358,119 @@
                 ],
                 "quote": "Good morning. Good evening.",
                 "picture": "characters/lamplighter.png"
+            },
+            {
+                "uuid": "2b6378a6-a3bb-4f45-8041-d2e2a4caf2b2",
+                "name": "The Geographer",
+                "firstAppearance": "Chapter 15",
+                "role": "Supporting Character",
+                "biography": "An old gentleman on Asteroid 330, ten times larger than the last, who writes enormous books but has never explored his own planet. He relies on explorers' accounts, records only eternal things like mountains and oceans, and advises the Little Prince to visit Earth.",
+                "personality": "Scholarly, self-important, methodical, detached from the world he describes.",
+                "relationships": [
+                    {
+                        "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+                        "relation": "Takes him for an explorer and sends him to Earth"
+                    },
+                    {
+                        "id": "977b9bcb-d8ea-40f6-bc57-5e407ff5d238",
+                        "relation": "Refuses to record her because she is ephemeral"
+                    }
+                ],
+                "quote": "But I am not an explorer. I haven't a single explorer on my planet. It is not the geographer who goes out to count the towns, the rivers, the mountains, the seas, the oceans, and the deserts. The geographer is much too important to go loafing about. He does not leave his desk. But he receives the explorers in his study…",
+                "picture": "characters/geographer.png"
+            },
+            {
+                "uuid": "15904496-a67d-466c-8f3e-62ed89358250",
+                "name": "The Snake",
+                "firstAppearance": "Chapter 17",
+                "role": "Supporting Character",
+                "biography": "A moon-colored desert serpent, thin as a finger, who is the first creature the Little Prince meets upon landing in Africa. Speaking in riddles, he promises to help the boy if he ever longs too much for his planet, and a year later keeps that promise.",
+                "personality": "Enigmatic, philosophical, solemn, fatalistic.",
+                "relationships": [
+                    {
+                        "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+                        "relation": "First earthly acquaintance and guide for his return"
+                    }
+                ],
+                "quote": "Whomever I touch, I send back to the earth from whence he came.",
+                "picture": "characters/snake.png"
+            },
+            {
+                "uuid": "790257da-c543-413c-adde-045929f236d3",
+                "name": "The Fox",
+                "firstAppearance": "Chapter 21",
+                "role": "Mentor",
+                "biography": "A wild fox who appears under an apple tree and asks the Little Prince to tame him: to come back at the same hour each day and sit a little closer. Before parting, he gives the boy a secret: true value comes from the time and care invested in another, and we are responsible for what we have tamed.",
+                "personality": "Wise, patient, observant, gentle, emotionally articulate.",
+                "relationships": [
+                    {
+                        "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+                        "relation": "Mentor and tamed friend"
+                    }
+                ],
+                "quote": "It is only with the heart that one can see rightly; what is essential is invisible to the eye.",
+                "picture": "characters/fox.png"
+            },
+            {
+                "uuid": "7c835bf9-4e4b-40f5-a461-9d2903f3898c",
+                "name": "The Railway Switchman",
+                "firstAppearance": "Chapter 22",
+                "role": "Minor Character",
+                "biography": "A railway worker who sorts travellers in bundles of a thousand and sends their roaring express trains now to the right, now to the left. He observes that people rush back and forth without knowing what they are looking for, and that only children press their noses to the windows.",
+                "personality": "Matter-of-fact, observant, quietly wry.",
+                "relationships": [
+                    {
+                        "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+                        "relation": "Shows him how grown-ups rush without knowing why"
+                    }
+                ],
+                "quote": "Only the children know what they are looking for. They waste their time over a rag doll and it becomes very important to them; and if anybody takes it away from them, they cry...",
+                "picture": "characters/switchman.png"
+            },
+            {
+                "uuid": "320d5915-a463-47ca-8131-d1c6f191de53",
+                "name": "The Merchant",
+                "firstAppearance": "Chapter 23",
+                "role": "Minor Character",
+                "biography": "A salesman of pills that quench thirst for a whole week, which experts calculate will save fifty-three minutes every week. The Little Prince knows exactly how he would spend those minutes: walking slowly toward a spring of fresh water.",
+                "personality": "Efficient, persuasive, obsessed with saving time.",
+                "relationships": [
+                    {
+                        "id": "77ab0181-5049-4e06-8dcd-52705de2b2a7",
+                        "relation": "Merchant whose time-saving pitch the boy gently undoes"
+                    }
+                ],
+                "quote": "If I had fifty-three extra minutes, I would use them to walk to a spring of fresh water.",
+                "picture": "characters/merchant.png"
             }
         ]
     },
     {
         "uuid": "b69342b3-9bce-4acf-b473-9f6ea24c4302",
         "isbn": "978-0141439846",
-        "name": "Dracula",
+        "title": "Dracula",
         "author": "Bram Stoker",
         "year": 1897,
         "genre": "Gothic Horror / Epistolary Novel",
         "numberOfChapters": 27,
-        "description": "Told through diary entries, letters, and ship logs, an ancient Transylvanian vampire plots to spread his undead plague to Victorian England, prompting a small alliance led by Professor Abraham Van Helsing to hunt him down.",
+        "synopsis": "Told through diaries, letters, phonograph records, newspaper cuttings and a ship's log, the story follows an ancient Transylvanian vampire who plots to move to Victorian England and spread his curse, and the small band of friends, led by Professor Abraham Van Helsing, who pool everything they know to hunt him back to his castle.",
         "coverImage": "covers/dracula.jpg",
         "checkpoints": [
             {
                 "uuid": "680cbb09-f48d-4c67-9416-0d667308e90f",
                 "title": "Guest and Prisoner at Borgo Pass",
-                "icon": "key.fill",
                 "chapter": 2,
-                "description": "Solicitor Jonathan Harker travels to the Carpathian Mountains to finalize a London estate purchase, only to uncover his host's monstrous nature.",
+                "icon": "shaving_mirror_S",
+                "description": "Solicitor Jonathan Harker travels to the Carpathians to finalise a London estate sale, ignores the villagers' crucifixes and warnings at the Borgo Pass, and slowly realises his courteous host is keeping him prisoner, and is no living man.",
                 "location": {
                     "uuid": "2d9ce3b0-3f80-4905-87eb-c1e91dfcf08d",
                     "name": "Castle Dracula, Transylvania",
-                    "icon": "building.columns.fill"
+                    "icon": "castle_dracula_map",
+                    "description": "A vast, ruined castle in the Carpathians, near the Borgo Pass, built on the edge of a terrible precipice above an endless forest. Inside, doors lead to more doors, all locked and bolted, and there seem to be no servants at all. Below, in a ruined chapel, the Count sleeps by day in a box of earth."
                 },
                 "mystery": {
                     "uuid": "680cbb09-f48d-4c67-9416-0d667308e90f",
-                    "question": "How does Jonathan Harker first discover that Count Dracula casts no reflection?",
+                    "question": "How does Harker discover that Count Dracula has no reflection?",
                     "options": [
                         "While shaving, Harker sees Dracula behind him yet his shaving mirror shows only the empty room",
                         "He walks past a hall of mirrors in the castle library",
@@ -330,21 +479,28 @@
                     ],
                     "answerIndex": 0,
                     "clues": [
+                        "He only realises the Count is in the room when he feels a hand on his shoulder.",
                         "The incident happens in the morning after Harker accidentally cuts his chin.",
                         "Dracula immediately throws the small glass out the high castle window afterward."
                     ]
-                }
+                },
+                "unlockedCharacters": [
+                    "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+                    "d97277d1-aea9-44b0-84c6-635d744fd05f",
+                    "fcfc66af-8d8e-41bd-abdc-5135e2a5ae20"
+                ]
             },
             {
                 "uuid": "3d0628c3-30d4-49cb-af0b-8da022d68470",
                 "title": "The Ghost Ship of Whitby",
-                "icon": "ferry.fill",
                 "chapter": 7,
-                "description": "During a violent tempest on the Yorkshire coast, a Russian schooner runs aground carrying fifty boxes of Transylvanian earth.",
+                "icon": "demeter_wheel_S",
+                "description": "In England, Mina and Lucy trade letters about love and three proposals in one day, Dr. Seward studies a patient who eats flies, and during a violent tempest a Russian schooner runs aground at Whitby carrying fifty boxes of earth.",
                 "location": {
                     "uuid": "5390aa2a-7f44-427d-90c5-d0bda50c275e",
                     "name": "Whitby Harbor, England",
-                    "icon": "water.waves"
+                    "icon": "whitby_harbor_map",
+                    "description": "A Yorkshire fishing town where the River Esk meets the sea, overlooked from the East Cliff by the ruins of Whitby Abbey and an old churchyard where Mina and Lucy like to sit. Here, in a sudden storm, the Russian schooner Demeter drives ashore by Tate Hill Pier, and a huge dog leaps from it and runs up to the churchyard."
                 },
                 "mystery": {
                     "uuid": "3d0628c3-30d4-49cb-af0b-8da022d68470",
@@ -357,21 +513,31 @@
                     ],
                     "answerIndex": 2,
                     "clues": [
+                        "The ship's log tells of crew members vanishing one by one on the voyage from Varna.",
                         "The captain tied his own hands to the spokes so he could not abandon his post.",
                         "A large black dog leaps ashore the instant the ship strikes the sand."
                     ]
-                }
+                },
+                "unlockedCharacters": [
+                    "65087c4f-0113-48de-94c1-33e8511d7aff",
+                    "5b23f96a-4708-4f6b-bb52-b516c9c27efb",
+                    "069a8a97-6461-4fc9-b6fc-4e881dc6a5ac",
+                    "40ba6756-fea7-4320-8d35-48e655cc32d8",
+                    "906429a1-27bc-4c6f-b177-a90d2ee2e5ef",
+                    "d65b2b18-fb38-438c-b6ab-5539bc55bc81"
+                ]
             },
             {
                 "uuid": "5b80c5b2-8c32-46e3-babb-8e97585230fe",
                 "title": "The Bloofer Lady of Hampstead",
-                "icon": "moon.stars.fill",
                 "chapter": 16,
-                "description": "Following Lucy Westenra's funeral, small children go missing on Hampstead Heath with tiny puncture wounds on their throats.",
+                "icon": "empty_coffin_S",
+                "description": "Lucy wastes away despite Van Helsing's garlic flowers and blood transfusions, and dies; soon after, small children go missing on Hampstead Heath and return with tiny puncture wounds on their throats.",
                 "location": {
                     "uuid": "09dcf7e9-5a30-45aa-b6de-d2ac0d735bd2",
                     "name": "Kingstead Cemetery, London",
-                    "icon": "flame"
+                    "icon": "kingstead_cemetery_map",
+                    "description": "A lonely churchyard at Kingstead, on the edge of Hampstead Heath, away from teeming London. Lucy is laid to rest here in the Westenra family tomb, in a leaden coffin, and it is from here that the 'bloofer lady' goes out at night."
                 },
                 "mystery": {
                     "uuid": "5b80c5b2-8c32-46e3-babb-8e97585230fe",
@@ -384,21 +550,26 @@
                     ],
                     "answerIndex": 1,
                     "clues": [
+                        "Newspapers report children lured away by a mysterious 'bloofer lady' on the Heath.",
                         "Dr. Seward initially refuses to believe Lucy's body is not inside her leaden coffin.",
                         "The group keeps a midnight vigil outside the churchyard vault."
                     ]
-                }
+                },
+                "unlockedCharacters": [
+                    "3e504c5e-2ecb-499d-bfea-de5c8ecf526c"
+                ]
             },
             {
                 "uuid": "80230ef5-610c-4b21-b07d-96fa5242e11e",
                 "title": "Sterilizing Carfax Abbey",
-                "icon": "shield.lefthalf.filled",
                 "chapter": 22,
-                "description": "Armed with legal records and sacred relics, the Crew of Light infiltrates Dracula's dilapidated estate next to Seward's asylum.",
+                "icon": "earth_box_wafer_S",
+                "description": "The friends pool every diary and letter, trace Dracula's earth-boxes to Carfax Abbey beside Seward's asylum, and set out to destroy his resting places, while the Count strikes at Mina in the very house they guard.",
                 "location": {
                     "uuid": "de66a16e-f3c5-4a45-bb07-efd33ab84c92",
                     "name": "Carfax Abbey, Purfleet",
-                    "icon": "cross.fill"
+                    "icon": "carfax_abbey_map",
+                    "description": "The old estate Harker bought for the Count: twenty acres behind a high stone wall, with a dark pond, an ancient chapel and a huge house with few, barred windows. Its name comes from the old French 'Quatre Face', since its sides face the four points of the compass, and right next door stands Dr. Seward's asylum."
                 },
                 "mystery": {
                     "uuid": "80230ef5-610c-4b21-b07d-96fa5242e11e",
@@ -411,18 +582,25 @@
                     ],
                     "answerIndex": 3,
                     "clues": [
+                        "Of the fifty boxes delivered to Carfax, many are already gone when the hunters break in.",
                         "Van Helsing obtained an Indulgence to carry the consecrated object for this purpose.",
                         "Once sanctified, the earth can no longer shelter the Count."
                     ]
-                }
+                },
+                "unlockedCharacters": []
             },
             {
                 "uuid": "04f89cd5-a407-468a-be6c-03a0d4dd0a7b",
                 "title": "The Telepathic Trance",
-                "icon": "eye.fill",
                 "chapter": 24,
-                "description": "After Dracula forces Mina to drink his blood, a perilous psychic bond forms between predator and prey.",
-                "location": null,
+                "icon": "czarina_catherine_S",
+                "description": "Marked on the forehead by the Sacred Wafer after Dracula forces her to drink his blood, Mina feels the Count flee England by sea, and the hunters follow him to the Black Sea, racing to turn the bond between predator and prey against him.",
+                "location": {
+                    "uuid": "af8d13f4-5e8a-4031-b8b6-fd828b0ce065",
+                    "name": "Varna, Black Sea",
+                    "icon": "varna_map",
+                    "description": "The Bulgarian port from which the Demeter first sailed with the Count's boxes of earth. The hunters race here across Europe by train to wait for the Czarina Catherine, the ship carrying Dracula home, but the Count's ship goes on to Galatz instead."
+                },
                 "mystery": {
                     "uuid": "04f89cd5-a407-468a-be6c-03a0d4dd0a7b",
                     "question": "How does the Crew of Light turn Mina's vampiric curse into a strategic advantage during the chase?",
@@ -435,20 +613,23 @@
                     "answerIndex": 0,
                     "clues": [
                         "The psychic connection is clearest during the transitional hours of dawn and dusk.",
-                        "Through it, Mina hears lapping water, creaking timbers, and sailors' voices aboard the Czarina Catherine."
+                        "Through it, Mina hears lapping water, creaking timbers, and sailors' voices aboard the Czarina Catherine.",
+                        "Fearing the link works both ways, Mina asks the men to stop telling her their plans."
                     ]
-                }
+                },
+                "unlockedCharacters": []
             },
             {
                 "uuid": "ac6dd586-3f54-4f2f-909e-0c4692e12607",
                 "title": "Showdown at Sunset",
-                "icon": "sunset.fill",
                 "chapter": 27,
-                "description": "Racing against the dying light in the snowy Carpathians, the hunters intercept the Szgany cart carrying Dracula's final box.",
+                "icon": "kukri_bowie_S",
+                "description": "Split into parties by river, road and rail, the hunters race through the snowy Carpathians to intercept the Szgany cart carrying Dracula's last box before the sun goes down.",
                 "location": {
                     "uuid": "f9920ce9-e846-440d-9112-eda81b71ed2b",
                     "name": "Borgo Pass, Carpathian Mountains",
-                    "icon": "mountain.2.fill"
+                    "icon": "borgo_pass_map",
+                    "description": "The mountain pass between Bistritz and Bukovina where Harker's journey into darkness began, as a mysterious coachman with blazing eyes met his coach. Months later, in the snow below the castle, the hunters ride against the setting sun to stop the last box before Dracula can wake."
                 },
                 "mystery": {
                     "uuid": "ac6dd586-3f54-4f2f-909e-0c4692e12607",
@@ -461,10 +642,12 @@
                     ],
                     "answerIndex": 1,
                     "clues": [
+                        "Mina watches from inside a holy circle Van Helsing has drawn in the snow.",
                         "Two blades strike simultaneously just as the sun touches the mountain tops.",
                         "In that instant, Dracula's body crumbles into dust."
                     ]
-                }
+                },
+                "unlockedCharacters": []
             }
         ],
         "characters": [
@@ -473,7 +656,7 @@
                 "name": "Count Dracula",
                 "firstAppearance": "Chapter 1",
                 "role": "Antagonist",
-                "biography": "A centuries-old Székely nobleman, warlord, and vampire residing in a decaying castle in Transylvania who schemes to relocate to London and build a new dynasty of the Un-Dead.",
+                "biography": "A centuries-old Székely nobleman, warlord, and vampire residing in a decaying castle in Transylvania who schemes to relocate to London and build a new dynasty of the Un-Dead. He first appears disguised as the coachman who collects Harker at the Borgo Pass.",
                 "personality": "Aristocratic, cunning, predatory, commanding, wrathful when thwarted.",
                 "relationships": [
                     {
@@ -495,6 +678,10 @@
                     {
                         "id": "40ba6756-fea7-4320-8d35-48e655cc32d8",
                         "relation": "Telepathic master"
+                    },
+                    {
+                        "id": "fcfc66af-8d8e-41bd-abdc-5135e2a5ae20",
+                        "relation": "Master who keeps them at bay and feeds them"
                     }
                 ],
                 "quote": "Listen to them—the children of the night. What music they make!",
@@ -505,7 +692,7 @@
                 "name": "Jonathan Harker",
                 "firstAppearance": "Chapter 1",
                 "role": "Protagonist",
-                "biography": "A young English solicitor sent to Castle Dracula to complete real estate transactions who narrowly escapes imprisonment and joins the crusade to avenge his trauma and save his wife Mina.",
+                "biography": "A young English solicitor sent to Castle Dracula to complete real estate transactions who narrowly escapes imprisonment and joins the crusade to avenge his trauma and save his wife Mina. His shorthand journal opens the novel.",
                 "personality": "Methodical, brave, resilient, fiercely devoted to Mina.",
                 "relationships": [
                     {
@@ -519,10 +706,38 @@
                     {
                         "id": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
                         "relation": "Trusted ally in the Crew of Light"
+                    },
+                    {
+                        "id": "fcfc66af-8d8e-41bd-abdc-5135e2a5ae20",
+                        "relation": "Nearly falls prey to them in a forbidden room of the castle"
                     }
                 ],
                 "quote": "The castle is a veritable prison, and I am a prisoner!",
                 "picture": "characters/jonathan_harker.png"
+            },
+            {
+                "uuid": "fcfc66af-8d8e-41bd-abdc-5135e2a5ae20",
+                "name": "The Three Sisters",
+                "firstAppearance": "Chapter 3",
+                "role": "Supporting Antagonists",
+                "biography": "Three vampire women who haunt Castle Dracula, two dark and one fair. Finding Harker asleep in a forbidden room, they nearly feed on him until the Count drives them back. At the end of the novel Van Helsing finds them in their tombs and destroys them.",
+                "personality": "Seductive, hungry, mocking, bound to the Count's will.",
+                "relationships": [
+                    {
+                        "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+                        "relation": "Their master, whom they resent and obey"
+                    },
+                    {
+                        "id": "d97277d1-aea9-44b0-84c6-635d744fd05f",
+                        "relation": "Prey promised to them by the Count"
+                    },
+                    {
+                        "id": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
+                        "relation": "The hunter who finally releases them"
+                    }
+                ],
+                "quote": "He is young and strong; there are kisses for us all.",
+                "picture": "characters/three_sisters.png"
             },
             {
                 "uuid": "65087c4f-0113-48de-94c1-33e8511d7aff",
@@ -549,32 +764,8 @@
                         "relation": "Psychically linked victim who turns his bond against him"
                     }
                 ],
-                "quote": "We must be ready to meet death at any turn, and we must not flinch.",
+                "quote": "Unclean! Unclean! Even the Almighty shuns my polluted flesh! I must bear this mark of shame upon my forehead until the Judgment Day.",
                 "picture": "characters/mina_harker.png"
-            },
-            {
-                "uuid": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
-                "name": "Professor Abraham Van Helsing",
-                "firstAppearance": "Chapter 9",
-                "role": "Mentor / Protagonist",
-                "biography": "A Dutch polymath, physician, philosopher, and metaphysician summoned by his former student Dr. Seward to diagnose Lucy Westenra's mysterious illness and lead the campaign against Dracula.",
-                "personality": "Erudite, open-minded, eccentric, courageous, deeply pious.",
-                "relationships": [
-                    {
-                        "id": "069a8a97-6461-4fc9-b6fc-4e881dc6a5ac",
-                        "relation": "Former medical professor and mentor"
-                    },
-                    {
-                        "id": "65087c4f-0113-48de-94c1-33e8511d7aff",
-                        "relation": "Mentor and admirer of her intellect"
-                    },
-                    {
-                        "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
-                        "relation": "Sworn nemesis"
-                    }
-                ],
-                "quote": "We have on our side power of combination—a power denied to the vampire kind.",
-                "picture": "characters/van_helsing.png"
             },
             {
                 "uuid": "5b23f96a-4708-4f6b-bb52-b516c9c27efb",
@@ -589,8 +780,16 @@
                         "relation": "Lifelong best friend"
                     },
                     {
+                        "id": "906429a1-27bc-4c6f-b177-a90d2ee2e5ef",
+                        "relation": "Beloved fiancé"
+                    },
+                    {
                         "id": "069a8a97-6461-4fc9-b6fc-4e881dc6a5ac",
                         "relation": "Close friend and rejected suitor"
+                    },
+                    {
+                        "id": "d65b2b18-fb38-438c-b6ab-5539bc55bc81",
+                        "relation": "Rejected suitor who remains a devoted friend"
                     },
                     {
                         "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
@@ -621,7 +820,7 @@
                         "relation": "Devoted friend and former suitor"
                     }
                 ],
-                "quote": "I am glad to have a friend who can help me in this dark hour.",
+                "quote": "Ebb tide in appetite to-day. Cannot eat, cannot rest, so diary instead.",
                 "picture": "characters/john_seward.png"
             },
             {
@@ -647,6 +846,429 @@
                 ],
                 "quote": "The blood is the life!",
                 "picture": "characters/renfield.png"
+            },
+            {
+                "uuid": "906429a1-27bc-4c6f-b177-a90d2ee2e5ef",
+                "name": "Arthur Holmwood (Lord Godalming)",
+                "firstAppearance": "Chapter 5",
+                "role": "Supporting Character / Protagonist",
+                "biography": "Lucy's fiancé and heir to Lord Godalming, whose title he inherits during her illness. He gives his own blood in the first transfusion, and after her death it is his hand that drives the stake through her heart and gives her peace.",
+                "personality": "Noble, warm-hearted, grief-stricken, steadfast.",
+                "relationships": [
+                    {
+                        "id": "5b23f96a-4708-4f6b-bb52-b516c9c27efb",
+                        "relation": "Devoted fiancé who frees her soul"
+                    },
+                    {
+                        "id": "069a8a97-6461-4fc9-b6fc-4e881dc6a5ac",
+                        "relation": "Old friend and fellow suitor"
+                    },
+                    {
+                        "id": "d65b2b18-fb38-438c-b6ab-5539bc55bc81",
+                        "relation": "Close friend and fellow hunter"
+                    },
+                    {
+                        "id": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
+                        "relation": "Reluctant follower who comes to trust him"
+                    }
+                ],
+                "quote": "God bless you that you have given my dear one her soul again, and me peace.",
+                "picture": "characters/arthur_holmwood.png"
+            },
+            {
+                "uuid": "d65b2b18-fb38-438c-b6ab-5539bc55bc81",
+                "name": "Quincey P. Morris",
+                "firstAppearance": "Chapter 5",
+                "role": "Supporting Character / Protagonist",
+                "biography": "A wealthy young Texan adventurer and the third of Lucy's suitors, who takes her refusal with good grace and stays her friend. Armed with his Bowie knife, he strikes Dracula's heart in the final fight and dies of his wounds at sunset.",
+                "personality": "Brave, cheerful, chivalrous, practical in a crisis.",
+                "relationships": [
+                    {
+                        "id": "5b23f96a-4708-4f6b-bb52-b516c9c27efb",
+                        "relation": "Rejected suitor who gives his blood for her"
+                    },
+                    {
+                        "id": "906429a1-27bc-4c6f-b177-a90d2ee2e5ef",
+                        "relation": "Close friend and comrade"
+                    },
+                    {
+                        "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+                        "relation": "Slayer, together with Jonathan Harker"
+                    }
+                ],
+                "quote": "Now God be thanked that all has not been in vain!",
+                "picture": "characters/quincey_morris.png"
+            },
+            {
+                "uuid": "3e504c5e-2ecb-499d-bfea-de5c8ecf526c",
+                "name": "Professor Abraham Van Helsing",
+                "firstAppearance": "Chapter 9",
+                "role": "Mentor / Protagonist",
+                "biography": "A Dutch polymath, physician, philosopher, and metaphysician summoned by his former student Dr. Seward to diagnose Lucy Westenra's mysterious illness and lead the campaign against Dracula.",
+                "personality": "Erudite, open-minded, eccentric, courageous, deeply pious.",
+                "relationships": [
+                    {
+                        "id": "069a8a97-6461-4fc9-b6fc-4e881dc6a5ac",
+                        "relation": "Former medical professor and mentor"
+                    },
+                    {
+                        "id": "65087c4f-0113-48de-94c1-33e8511d7aff",
+                        "relation": "Mentor and admirer of her intellect"
+                    },
+                    {
+                        "id": "d41a3bb9-fc7a-4a10-a065-4975d3594c46",
+                        "relation": "Sworn nemesis"
+                    }
+                ],
+                "quote": "We have on our side power of combination — a power denied to the vampire kind.",
+                "picture": "characters/van_helsing.png"
+            }
+        ]
+    },
+    {
+        "uuid": "9a649755-2bcf-4983-bf54-1810ad403661",
+        "isbn": "",
+        "title": "The Apology of Socrates",
+        "author": "Plato",
+        "year": -399,
+        "genre": "Philosophical Dialogue / Courtroom Speech",
+        "numberOfChapters": 33,
+        "synopsis": "In the spring of 399 BC the seventy-year-old Socrates stands before an Athenian jury of 501 citizens, accused of corrupting the young and not believing in the city's gods. Plato records his defence: the story of the Delphic oracle, his cross-examination of his accuser, his refusal to stop questioning, the guilty verdict, his defiant counter-penalty and his calm last words on death.",
+        "coverImage": "covers/apology_of_socrates.jpg",
+        "checkpoints": [
+            {
+                "uuid": "ee0ee180-c884-426e-bcdf-8cf2fd362f35",
+                "title": "The Old Accusers",
+                "icon": "comic_mask_S",
+                "description": "Facing a court for the first time at seventy, Socrates promises to speak plainly, then turns not to his new accusers but to older, invisible ones: years of rumours, a comic play, and the false belief that he teaches for money like the sophists.",
+                "location": {
+                    "uuid": "7716d2cc-6394-46b4-a6dd-7ef0f2c03108",
+                    "name": "The People's Court, Athens",
+                    "icon": "peoples_court_map",
+                    "description": "The Heliaia, Athens' great people's court. Its jurors were ordinary citizens over thirty, chosen by lot each year; Socrates faced a panel of 501, one more than five hundred so that the vote could not end in a tie. Speakers addressed them from a raised platform, timed by a water clock, and the verdict was cast with pebbles or bronze discs. At seventy, Socrates had never set foot here before."
+                },
+                "mystery": {
+                    "uuid": "ee0ee180-c884-426e-bcdf-8cf2fd362f35",
+                    "question": "Which famous comic poet does Socrates name among his 'old accusers'?",
+                    "options": [
+                        "Sophocles",
+                        "Aristophanes",
+                        "Homer",
+                        "Euripides"
+                    ],
+                    "answerIndex": 1,
+                    "clues": [
+                        "Socrates says these accusers are like shadows: he cannot call them up and question them.",
+                        "On stage, a character called Socrates claims he can walk in the air.",
+                        "The playwright made the jurors laugh at Socrates long before this trial."
+                    ]
+                },
+                "unlockedCharacters": [
+                    "74c675b0-0069-49d7-a5fc-3ec14b06af2e",
+                    "88a44c6a-2604-4a05-9f22-bee7f671b0cb",
+                    "8269b98f-000c-4b95-920f-8d149a9651c3",
+                    "a66613f5-baff-4d8f-a7aa-d51461fdf216"
+                ]
+            },
+            {
+                "uuid": "404fde5b-aa15-4511-90e6-62d692e079e5",
+                "title": "The Riddle of the Oracle",
+                "icon": "pythia_tripod_S",
+                "description": "When his friend Chaerephon asks the oracle at Delphi whether anyone is wiser than Socrates, the answer is no. Puzzled, Socrates questions politicians, poets and craftsmen to prove the god wrong, and makes powerful enemies along the way.",
+                "location": {
+                    "uuid": "419f3e08-5063-4c3b-a72a-081dbe66a81c",
+                    "name": "Temple of Apollo, Delphi",
+                    "icon": "temple_of_apollo_map",
+                    "description": "The sanctuary of Apollo, where the god answered questions through his priestess, the Pythia. Here Socrates' friend Chaerephon asked whether anyone was wiser than Socrates, and the answer was no. To Socrates, the god could not be lying: it was not lawful for him."
+                },
+                "mystery": {
+                    "uuid": "404fde5b-aa15-4511-90e6-62d692e079e5",
+                    "question": "Why does Socrates finally conclude that the oracle was right to call him the wisest?",
+                    "options": [
+                        "He has read more books than anyone else in Athens",
+                        "He is the most skilled orator in the city",
+                        "He alone knows that he does not know",
+                        "The god revealed secret knowledge to him in a dream"
+                    ],
+                    "answerIndex": 2,
+                    "clues": [
+                        "The politicians he questions believe they know things they do not.",
+                        "The poets write fine verses by inspiration, but cannot explain them.",
+                        "The craftsmen know their trade, yet think it makes them wise in everything else."
+                    ]
+                },
+                "unlockedCharacters": [
+                    "45c38dfd-6f37-4488-8eee-804eaeb573db",
+                    "e202be8e-07a3-478f-b1cf-965729fda688"
+                ]
+            },
+            {
+                "uuid": "d365f2fd-3015-4a52-80fc-98f502d556e6",
+                "title": "Cross-Examining Meletus",
+                "icon": "horse_foal_S",
+                "description": "Socrates names the three men behind the new charges, Meletus, Anytus and Lycon, then calls Meletus up and questions him in front of the jury until the accusation of corrupting the young and denying the gods starts to contradict itself.",
+                "location": {
+                    "uuid": "7716d2cc-6394-46b4-a6dd-7ef0f2c03108",
+                    "name": "The People's Court, Athens",
+                    "icon": "peoples_court_map",
+                    "description": "The Heliaia, Athens' great people's court. Its jurors were ordinary citizens over thirty, chosen by lot each year; Socrates faced a panel of 501, one more than five hundred so that the vote could not end in a tie. Speakers addressed them from a raised platform, timed by a water clock, and the verdict was cast with pebbles or bronze discs. At seventy, Socrates had never set foot here before."
+                },
+                "mystery": {
+                    "uuid": "d365f2fd-3015-4a52-80fc-98f502d556e6",
+                    "question": "How does Socrates show that Meletus's charge of atheism contradicts itself?",
+                    "options": [
+                        "Believing in divine things means believing in gods, as the indictment itself says he does",
+                        "He produces temple records of all the sacrifices he has made",
+                        "He swears a solemn oath to Zeus in front of the jury",
+                        "He calls his friends in the audience as witnesses to his piety"
+                    ],
+                    "answerIndex": 0,
+                    "clues": [
+                        "Meletus insists that Socrates is a complete atheist.",
+                        "Yet the indictment accuses him of introducing new divine beings.",
+                        "Socrates asks whether anyone could believe in things to do with horses but not in horses."
+                    ]
+                },
+                "unlockedCharacters": []
+            },
+            {
+                "uuid": "adb47bc4-772b-4cd2-ac39-77dd126f60e3",
+                "title": "The Gadfly of Athens",
+                "icon": "hoplite_arms_S",
+                "description": "Recalling his service at Potidaea, Amphipolis and Delium, Socrates refuses to fear death or to stop questioning: he is a gadfly stinging a sluggish horse. He tells of a divine sign, of standing alone against the Thirty, and of the friends who came to support him, before the jury finds him guilty.",
+                "location": {
+                    "uuid": "f6edb11a-4391-41fc-be6b-718058f1b567",
+                    "name": "The Agora, Athens",
+                    "icon": "agora_map",
+                    "description": "The city's public square, where Socrates spent his days talking with anyone he met, young or old, citizen or foreigner, often by the bankers' tables. Many of the jurors had heard him there, and it was there that he carried out what he called his service to the god."
+                },
+                "mystery": {
+                    "uuid": "adb47bc4-772b-4cd2-ac39-77dd126f60e3",
+                    "question": "What does Socrates' divine sign, the inner voice he has heard since childhood, actually do?",
+                    "options": [
+                        "It tells him which questions to ask in the Agora",
+                        "It predicts the outcome of battles",
+                        "It commands him to take part in politics",
+                        "It always holds him back, but never urges him to act"
+                    ],
+                    "answerIndex": 3,
+                    "clues": [
+                        "It is the reason he has kept out of public life.",
+                        "Meletus mocked it in his indictment, calling it a 'new divinity'.",
+                        "Socrates says it has never once told him what to do."
+                    ]
+                },
+                "unlockedCharacters": [
+                    "25cbe513-1f40-44d3-abea-dcf18e08ee11"
+                ]
+            },
+            {
+                "uuid": "26b2dafa-bac2-4284-92f6-731eb0fd966e",
+                "title": "A Penalty Fit for a Hero",
+                "icon": "prytaneum_meal_S",
+                "description": "Found guilty by only a narrow margin, Socrates must propose his own penalty. Instead of exile or prison he asks to be honoured as a benefactor of the city, then offers the one mina he can pay and, at his friends' urging, thirty minae. The jury sentences him to death.",
+                "location": {
+                    "uuid": "eb562e1e-043d-4ef7-aee5-ca3c58125cfc",
+                    "name": "The Prytaneum, Athens",
+                    "icon": "prytaneum_map",
+                    "description": "The building that held the city's common hearth, on the southern slopes of the Acropolis. There the state offered meals at public expense to its honoured guests: foreign ambassadors, Olympic victors and descendants of heroes such as Harmodius and Aristogeiton. This is the honour Socrates claims for himself as his 'penalty'."
+                },
+                "mystery": {
+                    "uuid": "26b2dafa-bac2-4284-92f6-731eb0fd966e",
+                    "question": "What does Socrates first propose as his 'penalty' after being found guilty?",
+                    "options": [
+                        "Free meals at the Prytaneum, like a public benefactor",
+                        "Exile from Athens for the rest of his life",
+                        "A promise to stop philosophising",
+                        "A year in the city prison"
+                    ],
+                    "answerIndex": 0,
+                    "clues": [
+                        "Socrates notes that just thirty votes going the other way would have acquitted him.",
+                        "He says he should receive what a man who has served the city deserves.",
+                        "Victors at the Olympic Games enjoy the very same honour."
+                    ]
+                },
+                "unlockedCharacters": []
+            },
+            {
+                "uuid": "dee9fa4c-8177-4c8e-b8e6-826a29ae32d3",
+                "title": "A Dreamless Sleep",
+                "icon": "unlit_lamp_S",
+                "description": "Sentenced to death, Socrates warns those who condemned him that younger critics will follow, comforts those who voted to acquit, imagines death as either a dreamless sleep or a journey to meet the heroes and poets of old, and asks his friends to watch over his sons.",
+                "location": {
+                    "uuid": "9087cf3d-d268-4e54-9cb6-9c10beffa1a6",
+                    "name": "The Underworld (imagined)",
+                    "icon": "underworld_map",
+                    "description": "Hades, as Socrates imagines it if death is a journey rather than a dreamless sleep. There the true judges, Minos, Rhadamanthus, Aeacus and Triptolemus, would sit, and he could meet Orpheus, Musaeus, Hesiod and Homer, compare notes with Palamedes and Ajax, who were also unjustly condemned, and go on questioning Odysseus and Sisyphus, forever."
+                },
+                "mystery": {
+                    "uuid": "dee9fa4c-8177-4c8e-b8e6-826a29ae32d3",
+                    "question": "Why does Socrates believe his death sentence may actually be a good thing?",
+                    "options": [
+                        "The oracle at Delphi promised him eternal life",
+                        "His divine sign never once opposed him on the day of the trial",
+                        "He plans to escape from prison with Crito's help",
+                        "He knows Plato will make him famous"
+                    ],
+                    "answerIndex": 1,
+                    "clues": [
+                        "The inner voice usually stops him even in the smallest matters.",
+                        "That morning, it stayed silent from the moment he left home to the end of his speech.",
+                        "Either death is a deep sleep, or a journey where he can question Homer and Odysseus."
+                    ]
+                },
+                "unlockedCharacters": []
+            }
+        ],
+        "characters": [
+            {
+                "uuid": "74c675b0-0069-49d7-a5fc-3ec14b06af2e",
+                "name": "Socrates",
+                "firstAppearance": "Chapter 1",
+                "role": "Protagonist",
+                "biography": "A seventy-year-old Athenian philosopher, father of three sons and veteran of Potidaea, Amphipolis and Delium, who has spent his life questioning his fellow citizens in the Agora, by the bankers' tables, without ever charging a fee. Appearing in court for the first time, accused of impiety and of corrupting the young, he defends himself with the same questions that made him enemies.",
+                "personality": "Ironic, fearless, poor by choice, endlessly curious, unshakably calm.",
+                "relationships": [
+                    {
+                        "id": "88a44c6a-2604-4a05-9f22-bee7f671b0cb",
+                        "relation": "Accuser he questions in front of the jury"
+                    },
+                    {
+                        "id": "8269b98f-000c-4b95-920f-8d149a9651c3",
+                        "relation": "Powerful accuser behind the trial"
+                    },
+                    {
+                        "id": "a66613f5-baff-4d8f-a7aa-d51461fdf216",
+                        "relation": "Playwright who mocked him on stage"
+                    },
+                    {
+                        "id": "45c38dfd-6f37-4488-8eee-804eaeb573db",
+                        "relation": "Lifelong friend who consulted the oracle about him"
+                    },
+                    {
+                        "id": "e202be8e-07a3-478f-b1cf-965729fda688",
+                        "relation": "Voice of the god whose riddle shaped his mission"
+                    },
+                    {
+                        "id": "25cbe513-1f40-44d3-abea-dcf18e08ee11",
+                        "relation": "Young follower present at the trial"
+                    }
+                ],
+                "quote": "The life which is unexamined is not worth living.",
+                "picture": "characters/socrates.png"
+            },
+            {
+                "uuid": "88a44c6a-2604-4a05-9f22-bee7f671b0cb",
+                "name": "Meletus",
+                "firstAppearance": "Chapter 3",
+                "role": "Antagonist",
+                "biography": "A young poet who formally brings the charges against Socrates, acting, Socrates says, on behalf of the poets. Called up for questioning, he insists that Socrates is a complete atheist and that the laws and every Athenian except Socrates improve the young, an answer that Socrates quickly turns against him.",
+                "personality": "Self-righteous, hasty, easily cornered, careless with his own charges.",
+                "relationships": [
+                    {
+                        "id": "74c675b0-0069-49d7-a5fc-3ec14b06af2e",
+                        "relation": "The man he prosecutes"
+                    },
+                    {
+                        "id": "8269b98f-000c-4b95-920f-8d149a9651c3",
+                        "relation": "Fellow accuser and political backer"
+                    }
+                ],
+                "quote": "I mean the latter—that you are a complete atheist.",
+                "picture": "characters/meletus.png"
+            },
+            {
+                "uuid": "a66613f5-baff-4d8f-a7aa-d51461fdf216",
+                "name": "Aristophanes",
+                "firstAppearance": "Chapter 3",
+                "role": "Absent Accuser",
+                "biography": "The great comic playwright of Athens, who is not in court. Socrates counts him among his 'old accusers', because his comedy The Clouds, staged twenty-four years earlier, showed a Socrates swung about in the air, prying into the heavens and making the weaker argument the stronger, shaping how the jurors had seen him since they were boys.",
+                "personality": "Witty, satirical, influential, careless of the truth for the sake of a laugh.",
+                "relationships": [
+                    {
+                        "id": "74c675b0-0069-49d7-a5fc-3ec14b06af2e",
+                        "relation": "Mocked him in a famous comedy"
+                    }
+                ],
+                "quote": "Who has introduced a man whom he calls Socrates, going about and saying that he can walk in the air.",
+                "picture": "characters/aristophanes.png"
+            },
+            {
+                "uuid": "45c38dfd-6f37-4488-8eee-804eaeb573db",
+                "name": "Chaerephon",
+                "firstAppearance": "Chapter 5",
+                "role": "Supporting Character",
+                "biography": "Socrates' impulsive friend since youth, a democrat who shared the people's exile and return. He travelled to Delphi and dared to ask the oracle whether anyone was wiser than Socrates. He has died before the trial, so his brother is ready to confirm the story.",
+                "personality": "Impetuous, devoted, bold, passionate in everything he does.",
+                "relationships": [
+                    {
+                        "id": "74c675b0-0069-49d7-a5fc-3ec14b06af2e",
+                        "relation": "Friend from youth whose question changed his life"
+                    },
+                    {
+                        "id": "e202be8e-07a3-478f-b1cf-965729fda688",
+                        "relation": "Received her answer at Delphi"
+                    }
+                ],
+                "quote": "He went to Delphi and boldly asked the oracle.",
+                "picture": "characters/chaerephon.png"
+            },
+            {
+                "uuid": "e202be8e-07a3-478f-b1cf-965729fda688",
+                "name": "The Pythia (Oracle of Delphi)",
+                "firstAppearance": "Chapter 5",
+                "role": "Catalyst",
+                "biography": "The priestess of Apollo at Delphi, through whom the god answers questions. Her brief reply to Chaerephon sets Socrates on his lifelong mission: to find out what the god meant by testing everyone who seemed wise.",
+                "personality": "Enigmatic, authoritative, speaking in riddles that must be interpreted.",
+                "relationships": [
+                    {
+                        "id": "45c38dfd-6f37-4488-8eee-804eaeb573db",
+                        "relation": "Answered his question about Socrates"
+                    },
+                    {
+                        "id": "74c675b0-0069-49d7-a5fc-3ec14b06af2e",
+                        "relation": "Declared him the wisest of men"
+                    }
+                ],
+                "quote": "There was no man wiser.",
+                "picture": "characters/pythia.png"
+            },
+            {
+                "uuid": "8269b98f-000c-4b95-920f-8d149a9651c3",
+                "name": "Anytus",
+                "firstAppearance": "Chapter 2",
+                "role": "Antagonist",
+                "biography": "A wealthy leather merchant turned general and one of the most powerful leaders of the restored democracy, who joins the prosecution on behalf of the craftsmen and politicians. Socrates reports that Anytus told the jury the case should never have come to court unless it ended with a death sentence.",
+                "personality": "Powerful, resentful, uncompromising, politically shrewd.",
+                "relationships": [
+                    {
+                        "id": "74c675b0-0069-49d7-a5fc-3ec14b06af2e",
+                        "relation": "The man he wants put to death"
+                    },
+                    {
+                        "id": "88a44c6a-2604-4a05-9f22-bee7f671b0cb",
+                        "relation": "Fellow accuser"
+                    }
+                ],
+                "quote": "If I were not put to death I ought not to have been prosecuted.",
+                "picture": "characters/anytus.png"
+            },
+            {
+                "uuid": "25cbe513-1f40-44d3-abea-dcf18e08ee11",
+                "name": "Plato",
+                "firstAppearance": "Chapter 22",
+                "role": "Witness / Author",
+                "biography": "A young Athenian aristocrat and devoted follower of Socrates, named among the friends present in court with his brother Adimantus. With Crito, Critobulus and Apollodorus he offers to guarantee a fine of thirty minae, and he later writes down the speech we read.",
+                "personality": "Loyal, attentive, silent in court, destined to become Socrates' voice.",
+                "relationships": [
+                    {
+                        "id": "74c675b0-0069-49d7-a5fc-3ec14b06af2e",
+                        "relation": "Teacher whose defence he records"
+                    }
+                ],
+                "quote": "Plato, Crito, Critobulus, and Apollodorus, my friends here, bid me say thirty minae, and they will be the sureties.",
+                "picture": "characters/plato.png"
             }
         ]
     }
