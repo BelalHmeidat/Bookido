@@ -62,10 +62,9 @@ public final class BookDataService: Sendable {
         saveProgress(progress, for: bookID)
     }
 
-    // MARK: - Catalog Loading (Always without details)
+    // MARK: - Catalog Loading
 
-    /// Loads the list of books from the JSON array (always without heavy checkpoints/characters)
-    /// and overlays saved user chapter progress.
+    /// Loads the list of books from the JSON array and overlays saved user progress.
     public func loadBooks(
         fileName: String = "BookData",
         bundle: Bundle = .main
@@ -77,10 +76,19 @@ public final class BookDataService: Sendable {
         let data = try Data(contentsOf: url)
         var books = try decode(from: data)
 
-        // Overlay saved chapter progress onto each book
+        // Overlay saved chapter and checkpoint progress onto each book
         for i in books.indices {
             let progress = loadProgress(for: books[i].id)
             books[i].currentChapter = progress.currentChapter
+            for cpIndex in books[i].checkpoints.indices {
+                let cpID = books[i].checkpoints[cpIndex].id
+                if let unlockDate = progress.unlockedCheckpoints[cpID] {
+                    books[i].checkpoints[cpIndex].unlockedAt = unlockDate
+                }
+                if let answerIndex = progress.mysteryAnswers[cpID] {
+                    books[i].checkpoints[cpIndex].mystery.selectedOptionIndex = answerIndex
+                }
+            }
         }
         return books
     }

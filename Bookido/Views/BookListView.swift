@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListBooksView: View {
+struct BookListView: View {
     // let isOnboarding: Bool NOT NEEDED - We check whether there is a bookStore.selectedBook
     @Environment(\.dismiss) private var dismiss
     @Environment(BookStore.self) private var bookStore: BookStore?
@@ -74,6 +74,6 @@ struct ListBooksView: View {
 }
 
 #Preview {
-    ListBooksView(
+    BookListView(
     )
 }

@@ -66,11 +66,17 @@ public final class BookStore: @unchecked Sendable {
 
     /// Hydrates checkpoints and characters on demand for a specific book if not yet loaded.
     public func hydrateDetailsIfNeeded(for bookId: UUID) {
-        guard let index = books.firstIndex(where: { $0.id == bookId }),
-              books[index].checkpoints.isEmpty else { return }
-        if let details = try? BookDataService.shared.loadDetails(for: bookId) {
+        if books.isEmpty {
+            _ = try? loadBooks()
+        }
+        guard let index = books.firstIndex(where: { $0.id == bookId }) else { return }
+        guard books[index].checkpoints.isEmpty else { return }
+        do {
+            let details = try BookDataService.shared.loadDetails(for: bookId)
             books[index].checkpoints = details.checkpoints
             books[index].characters = details.characters
+        } catch {
+            print("Failed to load details for book \(bookId): \(error)")
         }
     }
 

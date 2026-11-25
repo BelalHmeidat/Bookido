@@ -84,7 +84,7 @@ struct ShelfView: View {
                 ScannerView()
             }
             .fullScreenCover(isPresented: $showListBooks) {
-                ListBooksView()
+                BookListView()
             }
         }
     }

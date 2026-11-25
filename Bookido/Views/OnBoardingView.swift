@@ -64,7 +64,7 @@ struct OnBoardingView: View {
             ScannerView()
         }
         .fullScreenCover(isPresented: $showListBooks) {
-            ListBooksView()
+            BookListView()
         }
     }
 }

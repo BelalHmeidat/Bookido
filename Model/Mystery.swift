@@ -42,6 +42,25 @@ public struct Mystery: Identifiable, Codable, Hashable, Equatable, Sendable {
         self.selectedOptionIndex = selectedOptionIndex
     }
 
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(UUID.self, forKey: .id)
+        self.question = try container.decode(String.self, forKey: .question)
+        self.options = try container.decodeIfPresent([String].self, forKey: .options) ?? []
+        self.answerIndex = try container.decodeIfPresent(Int.self, forKey: .answerIndex) ?? 0
+        self.clues = try container.decodeIfPresent([String].self, forKey: .clues) ?? []
+        self.selectedOptionIndex = nil
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(question, forKey: .question)
+        try container.encode(options, forKey: .options)
+        try container.encode(answerIndex, forKey: .answerIndex)
+        try container.encode(clues, forKey: .clues)
+    }
+
     /// True if the user's selected option matches the answer index.
     public var isSolved: Bool {
         guard let selectedOptionIndex else { return false }
