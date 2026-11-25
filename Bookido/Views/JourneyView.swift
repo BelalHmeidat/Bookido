@@ -171,20 +171,13 @@ struct JourneyView: View {
                             } label: {
                                 Label("Locations", systemImage: "map")
                             }
-                        } label: {
-                            
+
                             Button {
-                                
                                 showUnlockedCards = true
-                                
-                            } label : {
-                                
-                                Label("Unclocked Cards", systemImage: "apple.books.pages")
-                                
+                            } label: {
+                                Label("Unlocked Cards", systemImage: "apple.books.pages")
                             }
-                            
-                            
-                        } label : {
+                        } label: {
                             Text("\(Image(systemName: "line.3.horizontal"))")
                                 .font(.system(.headline, design: .rounded, weight: .semibold))
                                 .foregroundStyle(SketchTheme.primaryAccent)
